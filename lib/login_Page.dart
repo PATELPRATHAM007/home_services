@@ -13,6 +13,8 @@ class TLoginPage extends StatefulWidget {
 }
 
 class _TLoginPageState extends State<TLoginPage> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
@@ -77,7 +79,7 @@ class _TLoginPageState extends State<TLoginPage> {
                           ],
                         ),
                       ),
-                      Center(
+                      const Center(
                         child: Text(
                           "Welcome Back",
                           style: TextStyle(
@@ -86,49 +88,147 @@ class _TLoginPageState extends State<TLoginPage> {
                               fontWeight: FontWeight.bold),
                         ),
                       ),
-                      Center(
-                        child: ElevatedButton(
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                              backgroundColor:
-                                  Color.fromARGB(255, 50, 88, 220)),
-                          child: const Text(
-                            "Login",
-                            style: TextStyle(
-                                fontSize: 16,
-                                color: Colors.white,
-                                fontFamily: "GoogleProductSans"),
-                          ),
-                        ),
+                      const SizedBox(
+                        height: 20,
                       ),
-                      
-                      Expanded(
-                        flex: 5,
+                      SizedBox(
+                        height: 70,
                         child: Padding(
-                          padding: EdgeInsets.all(10),
+                          padding: EdgeInsets.symmetric(horizontal: 110),
                           child: GridView.builder(
                             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: 3, // Number of items in a row
-                              crossAxisSpacing:
-                                  10, // Spacing between items horizontally
-                              mainAxisSpacing:
-                                  8.0, // Spacing between items vertically
-                            ),
+                                    crossAxisSpacing: 10,
+                                    //  mainAxisSpacing: 8.0,
+                                    mainAxisExtent: 58 
+                              ),
                             itemBuilder: (BuildContext context, int index) {
                               // You can customize the content of each grid item (rectangle) here
                               return Container(
-                                width: 500,
-                                height: 500,
-                                color: Colors.blue, // Change the color as needed
-                                child: Center(
-                                  child: Text(
-                                    'Item $index',
-                                    style: const TextStyle(color: Colors.white),
-                                  ),
+                                child: ElevatedButton(
+                                  onPressed: () {},
+                                  style: ElevatedButton.styleFrom(
+                                      elevation: 0,
+                                      shape: RoundedRectangleBorder(
+                                        
+                                        borderRadius: BorderRadius.circular(20),
+                                        side: BorderSide(color: Colors.grey,width: 1.5)
+                                      ),
+                                      backgroundColor:
+                                          TColors.white),
+                                  child: Icon(Icons.alarm,color: Colors.grey,)
                                 ),
                               );
                             },
-                            itemCount: 2, // Total number of items in the grid
+                            itemCount: 3, // Total number of items in the grid
+                          ),
+                        ),
+                      ),
+                      Center(
+                        child: Text(
+                          "or use your email address for login",
+                          style: TextStyle(
+                              color: Colors.grey[400],
+                              fontSize: 16,
+                              letterSpacing: 1.3,
+                              fontWeight: FontWeight.w100),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 40),
+                        child: TextField(
+                          controller: emailController,
+                          decoration: InputDecoration(
+                            labelText: 'Email',
+                            hintText: 'Enter your email',
+                            labelStyle: TextStyle(color: Colors.grey),
+                            hintStyle: TextStyle(color: Colors.grey),
+                            prefixIcon:
+                                Icon(Icons.email_outlined, color: Colors.grey),
+                            filled: true,
+                            fillColor: Colors.white,
+                            contentPadding:
+                                EdgeInsets.symmetric(horizontal: 35),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(30),
+                              borderSide: BorderSide(
+                                color: const Color.fromARGB(255, 179, 49, 49),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 40),
+                        child: TextField(
+                          controller: passwordController,
+                          decoration: InputDecoration(
+                            labelText: 'Password',
+                            labelStyle: TextStyle(color: Colors.grey),
+                            hintStyle: TextStyle(color: Colors.grey),
+                            hintText: 'Enter your password',
+                            prefixIcon: Icon(
+                              Icons.key_rounded,
+                              color: Colors.grey,
+                            ),
+                            filled: true,
+                            fillColor: Colors.white,
+                            contentPadding:
+                                EdgeInsets.symmetric(horizontal: 25),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(30),
+                              borderSide: BorderSide(
+                                color: const Color.fromARGB(255, 179, 49, 49),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 25, vertical: 10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            TextButton(
+                                onPressed: () {},
+                                child: Text(
+                                  "Forgot Password",
+                                  style: TextStyle(
+                                    decoration: TextDecoration.underline,
+                                    decorationColor: TColors.blue,
+                                    fontSize: 16,
+                                    color: TColors.blue,
+                                  ),
+                                )),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 15,
+                        ),
+                        child: SizedBox(
+                          height: 50,
+                          width: 400,
+                          child: ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                                backgroundColor:
+                                    Color.fromARGB(255, 50, 88, 220)),
+                            child: Text(
+                              'Login',
+                              style: TextStyle(
+                                  color: TColors.white,
+                                  fontSize: 23,
+                                  fontWeight: FontWeight.w500),
+                            ),
                           ),
                         ),
                       ),
@@ -143,7 +243,7 @@ class _TLoginPageState extends State<TLoginPage> {
               ],
             ),
           ),
-        )
+        ),
       ],
     ));
   }
