@@ -18,8 +18,16 @@ class _THomePageState extends State<THomePage> {
         appBar: PreferredSize(
             preferredSize: Size(screenSize.width, TSizeValues.navBarHeight),
             child: const TNavigationBar()),
-        body: const SingleChildScrollView(
-          child: THomepageBodySection()
+        body:  SingleChildScrollView(
+          child: Column(
+            children: [
+              THomepageBodySection(),
+              Container(
+                height: 200,
+              )
+
+            ],
+          )
         ),
     );
   }
