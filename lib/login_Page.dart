@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:home_services/commonFIles/logoSection.dart';
+import 'package:home_services/commonFIles/logoSectionStyle.dart';
 import 'package:home_services/constants/colors.dart';
 import 'package:home_services/constants/image_strings.dart';
 import 'package:home_services/constants/size_values.dart';
@@ -41,40 +43,25 @@ class _TLoginPageState extends State<TLoginPage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Container(
+                SizedBox(
                   width: 900 * 0.55,
                   height: 550,
                   // color: Colors.blue,
                   child: Column(
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(top: 10),
+                        padding: const EdgeInsets.only(top: 10),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Image.asset(
-                              TImageStrings.logo,
-                              width: TSizeValues.logoWidth,
-                              height: TSizeValues.logoHeight,
-                            ),
-                            const SizedBox(
-                              width: TSizeValues.logoGap,
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  TTextStrings.house,
-                                  style: TStyle.companyTextStyle(
-                                      color: TColors.blue),
-                                ),
-                                Text(
-                                  TTextStrings.hustler,
-                                  style: TStyle.companyTextStyle(
-                                      color: TColors.black),
-                                )
-                              ],
+                            CLogoSection(
+                              logoWidth: TSizeValues.logoWidth,
+                              logoHeight: TSizeValues.logoHeight,
+                              gap: TSizeValues.logoGap,
+                              textStyle: CTextStyle.companyTextStyle(
+                                  color: TColors.black,
+                                  textSize: TSizeValues.companyTextSize,
+                                  textWeigth: FontWeight.bold),
                             ),
                           ],
                         ),
@@ -94,30 +81,33 @@ class _TLoginPageState extends State<TLoginPage> {
                       SizedBox(
                         height: 70,
                         child: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 110),
+                          padding: const EdgeInsets.symmetric(horizontal: 110),
                           child: GridView.builder(
-                            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 3, // Number of items in a row
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount:
+                                        3, // Number of items in a row
                                     crossAxisSpacing: 10,
                                     //  mainAxisSpacing: 8.0,
-                                    mainAxisExtent: 58 
-                              ),
+                                    mainAxisExtent: 58),
                             itemBuilder: (BuildContext context, int index) {
                               // You can customize the content of each grid item (rectangle) here
                               return Container(
                                 child: ElevatedButton(
-                                  onPressed: () {},
-                                  style: ElevatedButton.styleFrom(
-                                      elevation: 0,
-                                      shape: RoundedRectangleBorder(
-                                        
-                                        borderRadius: BorderRadius.circular(20),
-                                        side: BorderSide(color: Colors.grey,width: 1.5)
-                                      ),
-                                      backgroundColor:
-                                          TColors.white),
-                                  child: Icon(Icons.alarm,color: Colors.grey,)
-                                ),
+                                    onPressed: () {},
+                                    style: ElevatedButton.styleFrom(
+                                        elevation: 0,
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                            side: const BorderSide(
+                                                color: Colors.grey,
+                                                width: 1.5)),
+                                        backgroundColor: TColors.white),
+                                    child: const Icon(
+                                      Icons.alarm,
+                                      color: Colors.grey,
+                                    )),
                               );
                             },
                             itemCount: 3, // Total number of items in the grid
@@ -134,57 +124,57 @@ class _TLoginPageState extends State<TLoginPage> {
                               fontWeight: FontWeight.w100),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 40),
+                        padding: const EdgeInsets.symmetric(horizontal: 40),
                         child: TextField(
                           controller: emailController,
                           decoration: InputDecoration(
                             labelText: 'Email',
                             hintText: 'Enter your email',
-                            labelStyle: TextStyle(color: Colors.grey),
-                            hintStyle: TextStyle(color: Colors.grey),
-                            prefixIcon:
-                                Icon(Icons.email_outlined, color: Colors.grey),
+                            labelStyle: const TextStyle(color: Colors.grey),
+                            hintStyle: const TextStyle(color: Colors.grey),
+                            prefixIcon: const Icon(Icons.email_outlined,
+                                color: Colors.grey),
                             filled: true,
                             fillColor: Colors.white,
                             contentPadding:
-                                EdgeInsets.symmetric(horizontal: 35),
+                                const EdgeInsets.symmetric(horizontal: 35),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(30),
-                              borderSide: BorderSide(
-                                color: const Color.fromARGB(255, 179, 49, 49),
+                              borderSide: const BorderSide(
+                                color: Color.fromARGB(255, 179, 49, 49),
                               ),
                             ),
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 15,
                       ),
                       Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 40),
+                        padding: const EdgeInsets.symmetric(horizontal: 40),
                         child: TextField(
                           controller: passwordController,
                           decoration: InputDecoration(
                             labelText: 'Password',
-                            labelStyle: TextStyle(color: Colors.grey),
-                            hintStyle: TextStyle(color: Colors.grey),
+                            labelStyle: const TextStyle(color: Colors.grey),
+                            hintStyle: const TextStyle(color: Colors.grey),
                             hintText: 'Enter your password',
-                            prefixIcon: Icon(
+                            prefixIcon: const Icon(
                               Icons.key_rounded,
                               color: Colors.grey,
                             ),
                             filled: true,
                             fillColor: Colors.white,
                             contentPadding:
-                                EdgeInsets.symmetric(horizontal: 25),
+                                const EdgeInsets.symmetric(horizontal: 25),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(30),
-                              borderSide: BorderSide(
-                                color: const Color.fromARGB(255, 179, 49, 49),
+                              borderSide: const BorderSide(
+                                color: Color.fromARGB(255, 179, 49, 49),
                               ),
                             ),
                           ),
@@ -221,7 +211,7 @@ class _TLoginPageState extends State<TLoginPage> {
                             onPressed: () {},
                             style: ElevatedButton.styleFrom(
                                 backgroundColor:
-                                    Color.fromARGB(255, 50, 88, 220)),
+                                    const Color.fromARGB(255, 50, 88, 220)),
                             child: Text(
                               'Login',
                               style: TextStyle(
