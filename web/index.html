@@ -41,6 +41,29 @@
 </head>
 <body>
   <script>
+    // Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBZnhIfD0e360FlV-N2XUAZYX-N941Shb0",
+  authDomain: "home-services-web.firebaseapp.com",
+  projectId: "home-services-web",
+  storageBucket: "home-services-web.appspot.com",
+  messagingSenderId: "803241437844",
+  appId: "1:803241437844:web:e6fe3a09716274aa74e281",
+  measurementId: "G-KH01MW5K7Y"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+  </script>
+  <script>
     window.addEventListener('load', function(ev) {
       // Download main.dart.js
       _flutter.loader.loadEntrypoint({

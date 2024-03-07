@@ -38,7 +38,7 @@ class LTextField extends StatelessWidget {
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30),
           borderSide: const BorderSide(
-            color: Color.fromARGB(255, 179, 49, 49),
+            color: Colors.grey,
           ),
         ),
       ),

@@ -38,11 +38,14 @@ dependencies:
   easy_search_bar: ^2.5.0
   dropdown_button2: ^2.3.9
   material_floating_search_bar_2: ^0.5.0
+  firebase_core: ^2.25.4
+  firebase_auth: ^4.17.4
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
+  
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
@@ -64,9 +67,14 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/CompanyLogo.png
-    - assets/images/worker.png
+    - assets/images/w1.png
     - assets/images/Dotted-grid-background.jpg
-
+    - assets/images/worker123.png
+    - assets/images/homeServiceWorker.png
+    - assets/images/AllServices.jpg
+    - assets/images/man1234.png
+    - assets/images/AllServices-v2.jpg
+    - assets/images/homeWorker.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

@@ -1,4 +1,6 @@
 import "package:flutter/material.dart";
+import "package:home_services/commonFIles/logoSectionStyle.dart";
+import "package:home_services/constants/colors.dart";
 
 import "package:home_services/constants/image_strings.dart";
 import "package:home_services/constants/size_values.dart";
@@ -6,20 +8,24 @@ import "package:home_services/constants/text_strings.dart";
 
 // ignore: must_be_immutable
 class CLogoSection extends StatelessWidget {
-  CLogoSection(
-      {super.key,
-      required this.logoWidth,
-      required this.logoHeight,
-      required this.gap,
-      required this.textStyle});
+  CLogoSection({
+    super.key,
+    required this.logoWidth,
+    required this.logoHeight,
+    required this.gap,
+  });
 
   double logoWidth;
   double logoHeight;
   double gap;
-  TextStyle textStyle;
 
   @override
   Widget build(BuildContext context) {
+    TextStyle housetextStyle = CTextStyle.companyTextStyle(
+        color: TColors.blue, textSize:  22,textWeigth: FontWeight.bold);
+    TextStyle hustlertextStyle = CTextStyle.companyTextStyle(
+        color: TColors.black, textSize:  22,textWeigth: FontWeight.bold);
+    
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
@@ -37,11 +43,11 @@ class CLogoSection extends StatelessWidget {
           children: [
             Text(
               TTextStrings.house,
-              style: textStyle,
+              style: housetextStyle,
             ),
             Text(
               TTextStrings.hustler,
-              style: textStyle,
+              style: hustlertextStyle,
             )
           ],
         ),

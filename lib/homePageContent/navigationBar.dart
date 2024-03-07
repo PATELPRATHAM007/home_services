@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:home_services/commonFIles/logoSection.dart';
+import 'package:home_services/commonFIles/navLinks.dart';
+import 'package:home_services/commonFIles/navloginButton.dart';
 import 'package:home_services/constants/colors.dart';
 import 'package:home_services/constants/size_values.dart';
-import 'package:home_services/homePageContent/navigationContent/cityDropDownButton.dart';
-import 'package:home_services/homePageContent/navigationContent/navloginButton.dart';
-import 'package:home_services/homePageContent/navigationContent/navLinks.dart';
-import 'package:home_services/homePageContent/navigationContent/navLogosection.dart';
-import 'package:home_services/homePageContent/navigationContent/navSeachBar.dart';
 
 class TNavigationBar extends StatefulWidget {
   const TNavigationBar({super.key});
@@ -21,36 +19,25 @@ class _TNavigationBarState extends State<TNavigationBar> {
 
     return Container(
       color: TColors.white,
-      child: const Padding(
-        padding: EdgeInsets.symmetric(
-            horizontal: TSizeValues.navBarPaddingHorizontal,
-            vertical: TSizeValues.navBarPaddingVertical),
+      child: Padding(
+       padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Row(
-              children: [
-                NavLogoSection(),
-                SizedBox(
-                  width: 20,
-                ),
-                CityDropDownButton(),
-                SizedBox(
-                  width: 20,
-                ),
-                SizedBox(
-                  width: 400,
-                  height: 35,
-                  child: TNavSearchBar(),
-                ),
-               
-              ],
+            CLogoSection(
+              logoWidth: TSizeValues.logoWidth,
+              logoHeight: TSizeValues.logoHeight,
+              gap: TSizeValues.logoGap,
             ),
             NavlinksSection(),
-            NavLoginButton()
+            NavLoginButton(),
           ],
         ),
       ),
     );
   }
+}
+
+class NavLogoSection {
+  const NavLogoSection();
 }

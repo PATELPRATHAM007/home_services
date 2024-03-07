@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class TSizeValues {
   //navbar constants
-  static const double navBarHeight = 90.0;
-  static const double navBarPaddingVertical = 7.0;
-  static const double navBarPaddingHorizontal = 15.0;
+  static const double navBarHeight = 75.0;
+  static const double navBarPaddingVertical = 15;
+  static const double navBarPaddingHorizontal = 30.0;
 
   //logo 
   static const double logoWidth = 53.0;
