@@ -14,6 +14,15 @@ class _THomePageState extends State<THomePage> {
   @override
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
+    PageController _pageController =
+        PageController(initialPage: 0, viewportFraction: .23);
+    int currentPageIndex = 0;
+    @override
+    void dispose() {
+      _pageController.dispose();
+      super.dispose();
+    }
+
     return Scaffold(
       appBar: PreferredSize(
           preferredSize: Size(screenSize.width, 75),
@@ -21,84 +30,11 @@ class _THomePageState extends State<THomePage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // homeScreenSection1(screenSize),
+            homeScreenSection1(screenSize),
             const SizedBox(
-              height: 20,
+              height: 60,
             ),
-            SizedBox(
-              height: screenSize.height,
-              width: screenSize.width,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 30),
-                    child: Text.rich(
-                      TextSpan(
-                        children: [
-                          TextSpan(
-                              text: "Artfully curated collections embodying\n",
-                              style: TextStyle(
-                                  color: TColors.blue,
-                                  fontSize: 45,
-                                  fontWeight: FontWeight.w600,
-                                  letterSpacing: 1.2)),
-                          TextSpan(
-                            text:
-                                "The essence of our most refined experiences.",
-                            style: TextStyle(
-                                color: TColors.black,
-                                fontSize: 45,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25),
-                    child: SizedBox(
-                      height: 420,
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: ListView.builder(
-                              scrollDirection: Axis.horizontal,
-                              itemCount: 10,
-                              itemBuilder: (context, index) {
-                                return Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 5),
-                                  child: SizedBox(
-                                    width: 300,
-                                    height: 50,
-                                    child: Card(
-                                      // Your card content goes here
-                                      elevation: 1,
-                                      // Your card content goes here
-                                      child: Center(
-                                        child: Text(
-                                          'Card $index',
-                                          style: const TextStyle(fontSize: 20.0),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                );
-                              },
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-
-                
-                ],
-              ),
-            ),
+            homeScreenSection2(screenSize, _pageController, currentPageIndex),
             SizedBox(
               width: screenSize.width,
               height: screenSize.height,
@@ -116,10 +52,10 @@ class _THomePageState extends State<THomePage> {
                               itemCount: 5,
                               itemBuilder: (context, index) {
                                 return Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 5),
+                                  padding:
+                                      const EdgeInsets.symmetric(horizontal: 5),
                                   child: SizedBox(
                                     width: 400,
-                                    
                                     child: Card(
                                       // Your card content goes here
                                       elevation: 1,
@@ -127,7 +63,8 @@ class _THomePageState extends State<THomePage> {
                                       child: Center(
                                         child: Text(
                                           'Card $index',
-                                          style: const TextStyle(fontSize: 20.0),
+                                          style:
+                                              const TextStyle(fontSize: 20.0),
                                         ),
                                       ),
                                     ),
@@ -142,27 +79,143 @@ class _THomePageState extends State<THomePage> {
                   )
                 ],
               ),
-            )
+            ),
+
+            // section 3
+            
+            
           ],
         ),
       ),
     );
   }
 
+  SizedBox homeScreenSection2(Size screenSize, PageController _pageController, int currentPageIndex) {
+    return SizedBox(
+            height: screenSize.height,
+            width: screenSize.width,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  child: Text.rich(
+                    TextSpan(
+                      children: [
+                        TextSpan(
+                            text: "Artfully curated collections embodying\n",
+                            style: TextStyle(
+                                color: TColors.blue,
+                                fontSize: 45,
+                                fontWeight: FontWeight.w600,
+                                letterSpacing: 1.2)),
+                        TextSpan(
+                          text:
+                              "The essence of our most refined experiences.",
+                          style: TextStyle(
+                              color: TColors.black,
+                              fontSize: 45,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25),
+                  child: Stack(
+                    children: [
+                      SizedBox(
+                        height: 420,
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: ListView.builder(
+                                controller: _pageController,
+                                scrollDirection: Axis.horizontal,
+                                itemCount: 10,
+                                itemBuilder: (context, index) {
+                                  return Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 5),
+                                    child: SizedBox(
+                                      width: 300,
+                                      height: 50,
+                                      child: Card(
+                                        // Your card content goes here
+                                        elevation: 1,
+                                        // Your card content goes here
+                                        child: Center(
+                                          child: Text(
+                                            'Card $index',
+                                            style: const TextStyle(
+                                                fontSize: 20.0),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Positioned(
+                        top: 180,
+                        left: 0,
+                        child: IconButton(
+                          icon: Icon(Icons.arrow_back),
+                          color: Colors.pink,
+                          onPressed: () {
+                            currentPageIndex--;
+                            _pageController.previousPage(
+                              duration: Duration(milliseconds: 300),
+                              curve: Curves.easeInOut,
+                            );
+                          },
+                        ),
+                      ),
+                      Positioned(
+                        top: 180,
+                        right: 0,
+                        child: IconButton(
+                          icon: Icon(Icons.arrow_forward),
+                          color: Colors.pink,
+                          onPressed: () {
+                            currentPageIndex++;
+                            _pageController.nextPage(
+                              duration: Duration(milliseconds: 300),
+                              curve: Curves.easeInOut,
+                            );
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          );
+  }
+
   Stack homeScreenSection1(Size screenSize) {
     return Stack(
       children: [
         Container(
-          height: screenSize.height - 70,
+          height: screenSize.height +70,
           width: screenSize.width,
           color: Colors.transparent,
           child: Image.asset(
             "assets/images/homeWorker.png",
-            fit: BoxFit.cover,
+            fit: BoxFit.fill,
           ),
         ),
         Container(
-          height: screenSize.height - 70,
+          height: screenSize.height + 70,
           width: screenSize.width,
           color: TColors.black.withOpacity(0.4),
         ),
