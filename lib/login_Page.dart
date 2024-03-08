@@ -3,6 +3,7 @@ import 'package:home_services/commonFIles/logoSection.dart';
 import 'package:home_services/commonFIles/logoSectionStyle.dart';
 import 'package:home_services/constants/colors.dart';
 import 'package:home_services/constants/size_values.dart';
+import 'package:home_services/constants/text_strings.dart';
 import 'package:home_services/loginPageContent/textField.dart';
 import 'package:home_services/signUp_page.dart';
 
@@ -36,11 +37,11 @@ class _TLoginPageState extends State<TLoginPage> {
         Center(
           child: Container(
             clipBehavior: Clip.antiAlias,
-            width: 900,
-            height: 550,
+            width: TSizeValues.mianContWidth,
+            height: TSizeValues.mianContHeight,
             decoration: BoxDecoration(
                 color: TColors.white,
-                borderRadius: BorderRadius.circular(90),
+                borderRadius: BorderRadius.circular(TSizeValues.mianContRadious),
                 boxShadow: const [
                   BoxShadow(
                     blurRadius: 5,
@@ -52,8 +53,8 @@ class _TLoginPageState extends State<TLoginPage> {
             child: Row(
               children: [
                 Container(
-                  width: 900 * 0.55,
-                  height: 550,
+                  width: TSizeValues.subContWidth1,
+                  height: TSizeValues.subContheight1,
                   color: TColors.white,
                   child: Column(
                     children: [
@@ -73,10 +74,10 @@ class _TLoginPageState extends State<TLoginPage> {
                       ),
 
                       // welcome text
-                      const Center(
+                      Center(
                         child: Text(
-                          "Welcome Back",
-                          style: TextStyle(
+                          TTextStrings.welcomeBack,
+                          style: const TextStyle(
                               letterSpacing: 2,
                               fontSize: 40,
                               fontWeight: FontWeight.bold),
@@ -90,35 +91,33 @@ class _TLoginPageState extends State<TLoginPage> {
 
                       // login with google or other
                       SizedBox(
-                        height: 70,
+                        height: TSizeValues.girdBoxHeight,
                         child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 110),
+                          padding: const EdgeInsets.symmetric(horizontal: TSizeValues.girdBoxPadding),
                           child: GridView.builder(
                             gridDelegate:
                                 const SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: 3,
-                              crossAxisSpacing: 10,
-                              mainAxisExtent: 58,
+                              crossAxisSpacing: TSizeValues.girdBoxCrossSpace,
+                              mainAxisExtent: TSizeValues.girdBoxMainExent,
                             ),
                             itemBuilder: (BuildContext context, int index) {
                               // You can customize the content of each grid item (rectangle) here
-                              return Container(
-                                child: ElevatedButton(
-                                    onPressed: () {},
-                                    style: ElevatedButton.styleFrom(
-                                        elevation: 0,
-                                        shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(20),
-                                            side: const BorderSide(
-                                                color: Colors.grey,
-                                                width: 1.5)),
-                                        backgroundColor: TColors.white),
-                                    child: const Icon(
-                                      Icons.alarm,
-                                      color: Colors.grey,
-                                    )),
-                              );
+                              return ElevatedButton(
+                                  onPressed: () {},
+                                  style: ElevatedButton.styleFrom(
+                                      elevation: 0,
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(TSizeValues.girdBoxRadious),
+                                          side: const BorderSide(
+                                              color: Colors.grey,
+                                              width: TSizeValues.girdBoxBorderWidth)),
+                                      backgroundColor: TColors.white),
+                                  child: const Icon(
+                                    Icons.alarm,
+                                    color: Colors.grey,
+                                  ));
                             },
                             itemCount: 3, // Total number of items in the grid
                           ),
@@ -128,7 +127,7 @@ class _TLoginPageState extends State<TLoginPage> {
                       // login breaker
                       Center(
                         child: Text(
-                          "or use your email address for login",
+                          TTextStrings.loginOptaion,
                           style: TextStyle(
                               color: Colors.grey[400],
                               fontSize: 16,
@@ -144,11 +143,11 @@ class _TLoginPageState extends State<TLoginPage> {
 
                       // email field
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 40),
+                        padding: const EdgeInsets.symmetric(horizontal: TSizeValues.fieldPadding),
                         child: LTextField(
                             controller: emailController,
-                            lableText: "Email",
-                            hitText: "Enter your E-mail",
+                            lableText: TTextStrings.email,
+                            hitText: TTextStrings.enterEmail,
                             perfixIcon: Icons.email_outlined,
                             suffixIcon: null,
                             obscureText: false),
@@ -159,12 +158,12 @@ class _TLoginPageState extends State<TLoginPage> {
 
                       // password field
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 40),
+                        padding: const EdgeInsets.symmetric(horizontal: TSizeValues.fieldPadding),
                         child: LTextField(
                           controller: passwordController,
-                          lableText: "Password",
-                          hitText: "Enter your password",
-                          perfixIcon: Icons.email_outlined,
+                          lableText: TTextStrings.password,
+                          hitText: TTextStrings.enterPass,
+                          perfixIcon: Icons.password,
                           obscureText: _showPassword,
                           suffixIcon: IconButton(
                             icon: Icon(
@@ -187,7 +186,7 @@ class _TLoginPageState extends State<TLoginPage> {
                             TextButton(
                                 onPressed: () {},
                                 child: Text(
-                                  "Forgot Password",
+                                  TTextStrings.forgotPass,
                                   style: TextStyle(
                                     decoration: TextDecoration.underline,
                                     decorationColor: TColors.blue,
@@ -204,15 +203,15 @@ class _TLoginPageState extends State<TLoginPage> {
                           vertical: 15,
                         ),
                         child: SizedBox(
-                          height: 50,
-                          width: 400,
+                          height: TSizeValues.lsbtnHeight,
+                          width: TSizeValues.lsbtnwidth,
                           child: ElevatedButton(
                             onPressed: () {},
                             style: ElevatedButton.styleFrom(
                                 backgroundColor:
                                     const Color.fromARGB(255, 50, 88, 220)),
                             child: Text(
-                              'Login',
+                              TTextStrings.login,
                               style: TextStyle(
                                   color: TColors.white,
                                   fontSize: 23,
@@ -225,8 +224,8 @@ class _TLoginPageState extends State<TLoginPage> {
                   ),
                 ),
                 Container(
-                  width: 900 * .45,
-                  height: 550,
+                  width: TSizeValues.subContWidth2,
+                  height: TSizeValues.subContheight2,
                   color: const Color.fromARGB(255, 50, 88, 220),
                   child: Column(
                     children: [
@@ -234,14 +233,14 @@ class _TLoginPageState extends State<TLoginPage> {
                         height: 120,
                       ),
                       Text(
-                        "Hii there !!",
+                        TTextStrings.hiiThere,
                         style: TextStyle(color: TColors.white, fontSize: 50),
                       ),
                       const SizedBox(
                         height: 20,
                       ),
                       Text(
-                        "Enter your detail and \n srart your journey with us",
+                        TTextStrings.enterDetails,
                         textAlign: TextAlign.center,
                         style: TextStyle(fontSize: 20, color: TColors.white),
                       ),
@@ -267,7 +266,7 @@ class _TLoginPageState extends State<TLoginPage> {
                             style: ElevatedButton.styleFrom(
                                 backgroundColor: TColors.white),
                             child: Text(
-                              'Sign Up',
+                              TTextStrings.signUp,
                               style: TextStyle(
                                   color: TColors.blue,
                                   fontSize: 23,
