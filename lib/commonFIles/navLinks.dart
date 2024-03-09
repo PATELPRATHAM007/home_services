@@ -3,14 +3,13 @@ import 'package:home_services/constants/colors.dart';
 import 'package:home_services/constants/text_strings.dart';
 
 class NavlinksSection extends StatefulWidget {
-  const NavlinksSection({super.key});
+  const NavlinksSection({Key? key});
 
   @override
   State<NavlinksSection> createState() => _NavlinksSectionState();
 }
 
 class _NavlinksSectionState extends State<NavlinksSection> {
-  
   final List<String> navbarString = [
     TTextStrings.home,
     TTextStrings.services,
@@ -19,7 +18,7 @@ class _NavlinksSectionState extends State<NavlinksSection> {
     TTextStrings.contactUS,
   ];
 
-  int ? selectedButtonIndex;
+  int selectedButtonIndex = 0; // Initialize with the desired default index
 
   @override
   Widget build(BuildContext context) {
@@ -27,10 +26,12 @@ class _NavlinksSectionState extends State<NavlinksSection> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: List.generate(navbarString.length, (index) {
         return Padding(
-          padding: const EdgeInsets.only(left : 55 ,right: 55),
+          padding: const EdgeInsets.only(left: 55, right: 55),
           child: TextButton(
             style: TextButton.styleFrom(
-              backgroundColor: index == selectedButtonIndex ? TColors.blue : TColors.transparent,
+              backgroundColor: index == selectedButtonIndex
+                  ? TColors.blue
+                  : TColors.transparent,
             ),
             onPressed: () {
               setState(() {
@@ -41,9 +42,11 @@ class _NavlinksSectionState extends State<NavlinksSection> {
               navbarString[index],
               style: TextStyle(
                 fontSize: 14,
-                color: index == selectedButtonIndex ? TColors.white : TColors.black,
-                fontWeight: FontWeight.w600,  
-                letterSpacing: 1.2
+                color: index == selectedButtonIndex
+                    ? TColors.white
+                    : TColors.black,
+                fontWeight: FontWeight.w600,
+                letterSpacing: 1.2,
               ),
             ),
           ),
