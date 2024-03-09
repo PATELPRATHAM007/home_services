@@ -1,5 +1,8 @@
+import 'package:flutter/foundation.dart';
 import "package:flutter/material.dart";
+import 'package:home_services/commonFIles/logoSection.dart';
 import 'package:home_services/constants/colors.dart';
+import 'package:home_services/constants/size_values.dart';
 import 'package:home_services/homePageContent/bodysection.dart';
 import 'package:home_services/homePageContent/navigationBar.dart';
 
@@ -326,14 +329,16 @@ class _THomePageState extends State<THomePage> {
               color: TColors.blue,
               child: Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 25,vertical: 25),
+                    const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(height: 140,),
+                        SizedBox(
+                          height: 140,
+                        ),
                         Text(
                           "BEST RESIDENTIAL & COMMERCIAL SERVICES",
                           style: TextStyle(fontSize: 20, color: Colors.white),
@@ -377,7 +382,9 @@ class _THomePageState extends State<THomePage> {
                     const SizedBox(width: 70),
                     Expanded(
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 25,),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 25,
+                        ),
                         child: ListView.builder(
                           scrollDirection: Axis.vertical,
                           itemCount: 5,
@@ -391,7 +398,6 @@ class _THomePageState extends State<THomePage> {
                                 decoration: BoxDecoration(
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(15.0),
-                                  
                                 ),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
@@ -401,14 +407,13 @@ class _THomePageState extends State<THomePage> {
                                       width: 50.0,
                                       height: 50.0,
                                       decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        color: Colors.pink
-                                      ),
+                                          shape: BoxShape.circle,
+                                          color: Colors.pink),
                                     ),
                                     SizedBox(
                                         width:
                                             16.0), // Add some space between the image and text
-                              
+
                                     // Column with Text Widgets
                                     Container(
                                       width: 370,
@@ -441,7 +446,197 @@ class _THomePageState extends State<THomePage> {
                 ),
               ),
             ),
-          
+
+            //ssection 7 booking process
+
+            Container(
+              width: screenSize.width,
+              height: 500,
+              color: Colors.white,
+            ),
+
+            // section 8 footer
+            Container(
+              width: screenSize.width,
+              height: 500,
+              color: TColors.blue,
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 150, vertical: 30),
+                child: Column(
+                  children: [
+                    // logo
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(top: 10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              CLogoSection(
+                                logoWidth: TSizeValues.logoWidth,
+                                logoHeight: TSizeValues.logoHeight,
+                                gap: TSizeValues.logoGap,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text(
+                              "Company",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.w500,
+                                  letterSpacing: 1.2),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: List.generate(
+                                  6,
+                                  (index) {
+                                    return TextButton(
+                                      onPressed: () {},
+                                      child: const Text(
+                                        "hello",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 18,
+                                          height: 2,
+                                          fontWeight: FontWeight.w300,
+                                          letterSpacing: 1.2,
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ))
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            const Text(
+                              "Company",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.w500,
+                                  letterSpacing: 1.2),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: List.generate(
+                                  4,
+                                  (index) {
+                                    return TextButton(
+                                      onPressed: () {},
+                                      child: const Text(
+                                        "hello",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 18,
+                                          height: 2,
+                                          fontWeight: FontWeight.w300,
+                                          letterSpacing: 1.2,
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ))
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            const Text(
+                              "Company",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.w500,
+                                  letterSpacing: 1.2),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: List.generate(
+                                  2,
+                                  (index) {
+                                    return TextButton(
+                                      onPressed: () {},
+                                      child: const Text(
+                                        "hello",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 18,
+                                          height: 2,
+                                          fontWeight: FontWeight.w300,
+                                          letterSpacing: 1.2,
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ))
+                          ],
+                        ),
+                        Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text(
+                              "Company",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.w500,
+                                  letterSpacing: 1.2),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: List.generate(
+                                4,
+                                (index) => Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      vertical: 10.0,horizontal: 10),
+                                  child: FloatingActionButton(
+                                    onPressed: () {
+                                      // Handle button tap
+                                    },
+                                    child: const Icon(
+                                      Icons.add,
+                                    ), // Replace with your desired icon
+                                  ),
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            )
           ],
         ),
       ),
@@ -469,7 +664,7 @@ class _THomePageState extends State<THomePage> {
                 TextSpan(
                   text: "The essence of our most refined experiences.",
                   style: TextStyle(
-                      color: TColors.black,
+                      color: TColors.white,
                       fontSize: 45,
                       fontWeight: FontWeight.bold),
                 ),
