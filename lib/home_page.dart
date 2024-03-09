@@ -33,113 +33,38 @@ class _THomePageState extends State<THomePage> {
           child: const TNavigationBar()),
       body: SingleChildScrollView(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             homeScreenSection1(screenSize),
             const SizedBox(
               height: 60,
             ),
-            homeScreenSection2(screenSize, _pageController, currentPageIndex),
-            const SizedBox(
-              height: 20,
-            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 25),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  homeScreenSection2(
+                      screenSize, _pageController, currentPageIndex),
+                  const SizedBox(
+                    height: 20,
+                  ),
 
-            // section 3
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25),
-              child: SizedBox(
-                height: 220,
-                child: Stack(
-                  children: [
-                    ListView.builder(
-                      controller: _pageController1,
-                      scrollDirection: Axis.horizontal,
-                      itemCount: 8,
-                      itemBuilder: (context, index) {
-                        return Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 5),
-                          child: SizedBox(
-                            width: 400,
-                            height: 220,
-                            child: Card(
-                              // Your card content goes here
-                              elevation: 1,
-                              child: Center(
-                                child: Text(
-                                  'Card $index',
-                                  style: const TextStyle(fontSize: 20.0),
-                                ),
-                              ),
-                            ),
-                          ),
-                        );
-                      },
-                    ),
-                    Positioned(
-                      top: 100,
-                      left: 0,
-                      child: IconButton(
-                        icon: const Icon(Icons.arrow_back),
-                        color: Colors.pink,
-                        onPressed: () {
-                          currentPageIndex1--;
-                          _pageController1.previousPage(
-                            duration: const Duration(milliseconds: 300),
-                            curve: Curves.easeInOut,
-                          );
-                        },
-                      ),
-                    ),
-                    Positioned(
-                      top: 100,
-                      right: 0,
-                      child: IconButton(
-                        icon: const Icon(Icons.arrow_forward),
-                        color: Colors.pink,
-                        onPressed: () {
-                          currentPageIndex1--;
-                          _pageController1.nextPage(
-                            duration: const Duration(milliseconds: 300),
-                            curve: Curves.easeInOut,
-                          );
-                        },
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            ),
-
-            // section 4
-            const SizedBox(height: 40),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: Text("New and noteworthy",
-                  style: TextStyle(
-                      color: TColors.blue,
-                      fontSize: 30,
-                      fontWeight: FontWeight.w600,
-                      letterSpacing: 1.2)),
-            ),
-            const SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25),
-              child: SizedBox(
-                height: 290,
-                child: Stack(
-                  children: [
-                    ListView.builder(
-                      controller: _pageController2,
-                      scrollDirection: Axis.horizontal,
-                      itemCount: 8,
-                      itemBuilder: (context, index) {
-                        return Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 5),
-                          child: Column(
-                            children: [
-                              SizedBox(
-                                width: 280,
-                                height: 250,
+                  // section 3
+                  SizedBox(
+                    height: 220,
+                    child: Stack(
+                      children: [
+                        ListView.builder(
+                          controller: _pageController1,
+                          scrollDirection: Axis.horizontal,
+                          itemCount: 8,
+                          itemBuilder: (context, index) {
+                            return Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 5),
+                              child: SizedBox(
+                                width: 400,
+                                height: 220,
                                 child: Card(
                                   // Your card content goes here
                                   elevation: 1,
@@ -151,172 +76,371 @@ class _THomePageState extends State<THomePage> {
                                   ),
                                 ),
                               ),
-                              const SizedBox(
-                                height: 5,
+                            );
+                          },
+                        ),
+                        Positioned(
+                          top: 100,
+                          left: 0,
+                          child: IconButton(
+                            icon: const Icon(Icons.arrow_back),
+                            color: Colors.pink,
+                            onPressed: () {
+                              currentPageIndex1--;
+                              _pageController1.previousPage(
+                                duration: const Duration(milliseconds: 300),
+                                curve: Curves.easeInOut,
+                              );
+                            },
+                          ),
+                        ),
+                        Positioned(
+                          top: 100,
+                          right: 0,
+                          child: IconButton(
+                            icon: const Icon(Icons.arrow_forward),
+                            color: Colors.pink,
+                            onPressed: () {
+                              currentPageIndex1--;
+                              _pageController1.nextPage(
+                                duration: const Duration(milliseconds: 300),
+                                curve: Curves.easeInOut,
+                              );
+                            },
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+
+                  // section 4
+                  const SizedBox(height: 40),
+                  Text("New and noteworthy",
+                      style: TextStyle(
+                          color: TColors.blue,
+                          fontSize: 30,
+                          fontWeight: FontWeight.w600,
+                          letterSpacing: 1.2)),
+                  const SizedBox(height: 20),
+                  SizedBox(
+                    height: 290,
+                    child: Stack(
+                      children: [
+                        ListView.builder(
+                          controller: _pageController2,
+                          scrollDirection: Axis.horizontal,
+                          itemCount: 8,
+                          itemBuilder: (context, index) {
+                            return Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 5),
+                              child: Column(
+                                children: [
+                                  SizedBox(
+                                    width: 280,
+                                    height: 250,
+                                    child: Card(
+                                      // Your card content goes here
+                                      elevation: 1,
+                                      child: Center(
+                                        child: Text(
+                                          'Card $index',
+                                          style:
+                                              const TextStyle(fontSize: 20.0),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    height: 5,
+                                  ),
+                                  const Text(
+                                    "data",
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.black),
+                                  )
+                                ],
                               ),
-                              const Text(
-                                "data",
-                                style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.black),
-                              )
+                            );
+                          },
+                        ),
+                        Positioned(
+                          top: 100,
+                          left: 0,
+                          child: IconButton(
+                            icon: const Icon(Icons.arrow_back),
+                            color: Colors.pink,
+                            onPressed: () {
+                              currentPageIndex2--;
+                              _pageController2.previousPage(
+                                duration: const Duration(milliseconds: 300),
+                                curve: Curves.easeInOut,
+                              );
+                            },
+                          ),
+                        ),
+                        Positioned(
+                          top: 100,
+                          right: 0,
+                          child: IconButton(
+                            icon: const Icon(Icons.arrow_forward),
+                            color: Colors.pink,
+                            onPressed: () {
+                              currentPageIndex2--;
+                              _pageController2.nextPage(
+                                duration: const Duration(milliseconds: 300),
+                                curve: Curves.easeInOut,
+                              );
+                            },
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+
+                  //section 5
+                  const SizedBox(height: 60),
+                  Text("Most booked services",
+                      style: TextStyle(
+                          color: TColors.blue,
+                          fontSize: 30,
+                          fontWeight: FontWeight.w600,
+                          letterSpacing: 1.2)),
+                  const SizedBox(height: 20),
+                  SizedBox(
+                    height: 350,
+                    child: Stack(
+                      children: [
+                        ListView.builder(
+                          controller: _pageController3,
+                          scrollDirection: Axis.horizontal,
+                          itemCount: 8,
+                          itemBuilder: (context, index) {
+                            return Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 5),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  SizedBox(
+                                    width: 280,
+                                    height: 250,
+                                    child: Card(
+                                      // Your card content goes here
+                                      elevation: 1,
+                                      child: Center(
+                                        child: Text(
+                                          'Card $index',
+                                          style:
+                                              const TextStyle(fontSize: 20.0),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    height: 5,
+                                  ),
+                                  const Padding(
+                                    padding:
+                                        EdgeInsets.symmetric(horizontal: 15),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          "data",
+                                          style: TextStyle(
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.w500,
+                                              color: Colors.black),
+                                        ),
+                                        Row(
+                                          children: [
+                                            Icon(Icons.star),
+                                            SizedBox(width: 4),
+                                            Text("4.8 (47k reviews)"),
+                                          ],
+                                        ),
+                                        Row(
+                                          children: [
+                                            Icon(
+                                                Icons.monetization_on_outlined),
+                                            SizedBox(width: 4),
+                                            Text("499"),
+                                          ],
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            );
+                          },
+                        ),
+                        Positioned(
+                          top: 100,
+                          left: 0,
+                          child: IconButton(
+                            icon: const Icon(Icons.arrow_back),
+                            color: Colors.pink,
+                            onPressed: () {
+                              currentPageIndex3--;
+                              _pageController3.previousPage(
+                                duration: const Duration(milliseconds: 300),
+                                curve: Curves.easeInOut,
+                              );
+                            },
+                          ),
+                        ),
+                        Positioned(
+                          top: 100,
+                          right: 0,
+                          child: IconButton(
+                            icon: const Icon(Icons.arrow_forward),
+                            color: Colors.pink,
+                            onPressed: () {
+                              currentPageIndex3--;
+                              _pageController3.nextPage(
+                                duration: const Duration(milliseconds: 300),
+                                curve: Curves.easeInOut,
+                              );
+                            },
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+
+                  //section 6 why you choose us
+                ],
+              ),
+            ),
+
+            // section 6 why you choose us
+            const SizedBox(height: 120),
+            Container(
+              width: screenSize.width,
+              height: 650,
+              color: TColors.blue,
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 25,vertical: 25),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(height: 140,),
+                        Text(
+                          "BEST RESIDENTIAL & COMMERCIAL SERVICES",
+                          style: TextStyle(fontSize: 20, color: Colors.white),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Text.rich(
+                          TextSpan(
+                            children: [
+                              TextSpan(
+                                  text: "WELCOME TO OUR HOME SERVICES\n",
+                                  style: TextStyle(
+                                      fontSize: 40,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w600)),
+                              TextSpan(
+                                  text: "WE ARE PROFESSIONAL & RELIABLE",
+                                  style: TextStyle(
+                                      height: 1.2,
+                                      fontSize: 40,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w600)),
                             ],
                           ),
-                        );
-                      },
+                        ),
+                        SizedBox(
+                          height: 40,
+                        ),
+                        SizedBox(
+                            height: 100,
+                            width: 700,
+                            child: Text(
+                              "We understand that in today’s busy world it’s very difficult to manage time for ourselves even, let alone time for fixing things at home. For every person there is always something that needs attention back home be it small issues like repairing home appliances or time consuming ones like getting the décor done.",
+                              style:
+                                  TextStyle(fontSize: 18, color: Colors.white),
+                              textAlign: TextAlign.justify,
+                            )),
+                      ],
                     ),
-                    Positioned(
-                      top: 100,
-                      left: 0,
-                      child: IconButton(
-                        icon: const Icon(Icons.arrow_back),
-                        color: Colors.pink,
-                        onPressed: () {
-                          currentPageIndex2--;
-                          _pageController2.previousPage(
-                            duration: const Duration(milliseconds: 300),
-                            curve: Curves.easeInOut,
-                          );
-                        },
-                      ),
-                    ),
-                    Positioned(
-                      top: 100,
-                      right: 0,
-                      child: IconButton(
-                        icon: const Icon(Icons.arrow_forward),
-                        color: Colors.pink,
-                        onPressed: () {
-                          currentPageIndex2--;
-                          _pageController2.nextPage(
-                            duration: const Duration(milliseconds: 300),
-                            curve: Curves.easeInOut,
-                          );
-                        },
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            ),
-
-            //section 5
-            const SizedBox(height: 60),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: Text("Most booked services",
-                  style: TextStyle(
-                      color: TColors.blue,
-                      fontSize: 30,
-                      fontWeight: FontWeight.w600,
-                      letterSpacing: 1.2)),
-            ),
-            const SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25),
-              child: SizedBox(
-                height: 350,
-                child: Stack(
-                  children: [
-                    ListView.builder(
-                      controller: _pageController3,
-                      scrollDirection: Axis.horizontal,
-                      itemCount: 8,
-                      itemBuilder: (context, index) {
-                        return Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 5),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              SizedBox(
-                                width: 280,
-                                height: 250,
-                                child: Card(
-                                  // Your card content goes here
-                                  elevation: 1,
-                                  child: Center(
-                                    child: Text(
-                                      'Card $index',
-                                      style: const TextStyle(fontSize: 20.0),
-                                    ),
-                                  ),
+                    const SizedBox(width: 70),
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 25,),
+                        child: ListView.builder(
+                          scrollDirection: Axis.vertical,
+                          itemCount: 5,
+                          itemBuilder: (context, index) {
+                            return Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 10),
+                              child: Container(
+                                width: 400,
+                                height: 100,
+                                padding: EdgeInsets.all(16.0),
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(15.0),
+                                  
                                 ),
-                              ),
-                              const SizedBox(
-                                height: 5,
-                              ),
-                              const Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 15),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
-                                    Text(
-                                      "data",
-                                      style: TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.w500,
-                                          color: Colors.black),
+                                    // Circular Image
+                                    Container(
+                                      width: 50.0,
+                                      height: 50.0,
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        color: Colors.pink
+                                      ),
                                     ),
-                                    Row(
-                                      children: [
-                                        Icon(Icons.star),
-                                        SizedBox(width: 4),
-                                        Text("4.8 (47k reviews)"),
-                                      ],
+                                    SizedBox(
+                                        width:
+                                            16.0), // Add some space between the image and text
+                              
+                                    // Column with Text Widgets
+                                    Container(
+                                      width: 370,
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            'First Text',
+                                            style: TextStyle(
+                                                fontSize: 18.0,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                          Text(
+                                            'Second Text',
+                                            style: TextStyle(fontSize: 16.0),
+                                          ),
+                                        ],
+                                      ),
                                     ),
-                                    Row(
-                                      children: [
-                                        Icon(Icons.monetization_on_outlined),
-                                        SizedBox(width: 4),
-                                        Text("499"),
-                                      ],
-                                    )
                                   ],
                                 ),
                               ),
-                            ],
-                          ),
-                        );
-                      },
-                    ),
-                    Positioned(
-                      top: 100,
-                      left: 0,
-                      child: IconButton(
-                        icon: const Icon(Icons.arrow_back),
-                        color: Colors.pink,
-                        onPressed: () {
-                          currentPageIndex3--;
-                          _pageController3.previousPage(
-                            duration: const Duration(milliseconds: 300),
-                            curve: Curves.easeInOut,
-                          );
-                        },
-                      ),
-                    ),
-                    Positioned(
-                      top: 100,
-                      right: 0,
-                      child: IconButton(
-                        icon: const Icon(Icons.arrow_forward),
-                        color: Colors.pink,
-                        onPressed: () {
-                          currentPageIndex3--;
-                          _pageController3.nextPage(
-                            duration: const Duration(milliseconds: 300),
-                            curve: Curves.easeInOut,
-                          );
-                        },
+                            );
+                          },
+                        ),
                       ),
                     )
                   ],
                 ),
               ),
-            )
-          
-
-
+            ),
           
           ],
         ),
@@ -332,103 +456,96 @@ class _THomePageState extends State<THomePage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30),
-            child: Text.rich(
-              TextSpan(
-                children: [
-                  TextSpan(
-                      text: "Artfully curated collections embodying\n",
-                      style: TextStyle(
-                          color: TColors.blue,
-                          fontSize: 45,
-                          fontWeight: FontWeight.w600,
-                          letterSpacing: 1.2)),
-                  TextSpan(
-                    text: "The essence of our most refined experiences.",
+          Text.rich(
+            TextSpan(
+              children: [
+                TextSpan(
+                    text: "Artfully curated collections embodying\n",
                     style: TextStyle(
-                        color: TColors.black,
+                        color: TColors.blue,
                         fontSize: 45,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
+                        fontWeight: FontWeight.w600,
+                        letterSpacing: 1.2)),
+                TextSpan(
+                  text: "The essence of our most refined experiences.",
+                  style: TextStyle(
+                      color: TColors.black,
+                      fontSize: 45,
+                      fontWeight: FontWeight.bold),
+                ),
+              ],
             ),
           ),
           const SizedBox(
             height: 30,
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25),
-            child: Stack(
-              children: [
-                SizedBox(
-                  height: 420,
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: ListView.builder(
-                          controller: _pageController,
-                          scrollDirection: Axis.horizontal,
-                          itemCount: 10,
-                          itemBuilder: (context, index) {
-                            return Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 5),
-                              child: SizedBox(
-                                width: 300,
-                                height: 50,
-                                child: Card(
-                                  // Your card content goes here
-                                  elevation: 1,
-                                  // Your card content goes here
-                                  child: Center(
-                                    child: Text(
-                                      'Card $index',
-                                      style: const TextStyle(fontSize: 20.0),
-                                    ),
+          Stack(
+            children: [
+              SizedBox(
+                height: 420,
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: ListView.builder(
+                        controller: _pageController,
+                        scrollDirection: Axis.horizontal,
+                        itemCount: 10,
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 5),
+                            child: SizedBox(
+                              width: 300,
+                              height: 50,
+                              child: Card(
+                                // Your card content goes here
+                                elevation: 1,
+                                // Your card content goes here
+                                child: Center(
+                                  child: Text(
+                                    'Card $index',
+                                    style: const TextStyle(fontSize: 20.0),
                                   ),
                                 ),
                               ),
-                            );
-                          },
-                        ),
+                            ),
+                          );
+                        },
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-                Positioned(
-                  top: 180,
-                  left: 0,
-                  child: IconButton(
-                    icon: Icon(Icons.arrow_back),
-                    color: Colors.pink,
-                    onPressed: () {
-                      currentPageIndex--;
-                      _pageController.previousPage(
-                        duration: Duration(milliseconds: 300),
-                        curve: Curves.easeInOut,
-                      );
-                    },
-                  ),
+              ),
+              Positioned(
+                top: 180,
+                left: 0,
+                child: IconButton(
+                  icon: Icon(Icons.arrow_back),
+                  color: Colors.pink,
+                  onPressed: () {
+                    currentPageIndex--;
+                    _pageController.previousPage(
+                      duration: Duration(milliseconds: 300),
+                      curve: Curves.easeInOut,
+                    );
+                  },
                 ),
-                Positioned(
-                  top: 180,
-                  right: 0,
-                  child: IconButton(
-                    icon: Icon(Icons.arrow_forward),
-                    color: Colors.pink,
-                    onPressed: () {
-                      currentPageIndex++;
-                      _pageController.nextPage(
-                        duration: Duration(milliseconds: 300),
-                        curve: Curves.easeInOut,
-                      );
-                    },
-                  ),
+              ),
+              Positioned(
+                top: 180,
+                right: 0,
+                child: IconButton(
+                  icon: Icon(Icons.arrow_forward),
+                  color: Colors.pink,
+                  onPressed: () {
+                    currentPageIndex++;
+                    _pageController.nextPage(
+                      duration: Duration(milliseconds: 300),
+                      curve: Curves.easeInOut,
+                    );
+                  },
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ],
       ),
