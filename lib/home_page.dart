@@ -449,6 +449,7 @@ class _THomePageState extends State<THomePage> {
 
             //ssection 7 booking process
 
+
             Container(
               width: screenSize.width,
               height: 500,
@@ -664,7 +665,7 @@ class _THomePageState extends State<THomePage> {
                 TextSpan(
                   text: "The essence of our most refined experiences.",
                   style: TextStyle(
-                      color: TColors.white,
+                      color: TColors.black,
                       fontSize: 45,
                       fontWeight: FontWeight.bold),
                 ),
