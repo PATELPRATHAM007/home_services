@@ -38,10 +38,10 @@ class _THomePageState extends State<THomePage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            greetingSection(
-              screenSizeheight: screenSize.height,
-              screenSizewidth: screenSize.width,
-            ),
+            // greetingSection(
+            //   screenSizeheight: screenSize.height,
+            //   screenSizewidth: screenSize.width,
+            // ),
             const SizedBox(height: 60),
             servicesAndBookingSection(
                 screenSize,
