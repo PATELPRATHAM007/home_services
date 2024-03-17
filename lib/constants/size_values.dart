@@ -54,4 +54,17 @@ class TSizeValues {
   static const double lsbtnHeight = 50;
   static const double lsbtnwidth = 400;
   
+
+
+  //font size
+
+  static const double smallFont = 18;
+  static const double smallProFont = 24;
+  static const double midFont = 28;
+  static const double largeFont = 32;
+  static const double extraLargeFont = 36;
+  static const double extraLargeProFont = 42;
+  static const double extraLargePromaxFont = 48;
+  static const double extraLargeProMaxUltraFont = 60;
+  static const double superFont = 120;
 } 
