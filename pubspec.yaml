@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.2.6 <4.0.0'
+  sdk: '>=3.1.2 <4.0.0'
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -38,12 +38,14 @@ dependencies:
   easy_search_bar: ^2.5.0
   dropdown_button2: ^2.3.9
   material_floating_search_bar_2: ^0.5.0
-  firebase_core: ^2.25.4
-  firebase_auth: ^4.17.4
+  firebase_core: ^2.24.2
+  responsive_builder: ^0.7.0
+  responsive_framework: ^1.4.0
+  firebase_auth: ^4.17.9
 
 dev_dependencies:
   flutter_test:
-    sdk: flutter
+    sdk: flutter  
 
   
   # The "flutter_lints" package below contains a set of recommended lints to

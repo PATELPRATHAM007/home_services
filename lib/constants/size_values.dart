@@ -57,7 +57,6 @@ class TSizeValues {
 
 
   //font size
-
   static const double smallFont = 18;
   static const double smallProFont = 24;
   static const double midFont = 28;

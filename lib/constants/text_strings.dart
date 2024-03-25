@@ -10,9 +10,16 @@ class TTextStrings {
   static String aboutUs = "ANOUT US";
   static String contactUS = "CONTACT US";
 
+  //greeting section
+  static String exploreService = "CONTACT US";
+  static String qualityInfo = "CONTACT US";
+  static String weProvieding = "CONTACT US";
+  static String qualityWork = "CONTACT US";
+
   // login page
   static String signUp = 'Sign Up';
-  static String enterDetails = "Enter your detail and \n srart your journey with us";
+  static String enterDetails =
+      "Enter your detail and \n srart your journey with us";
   static String hiiThere = "Hii there !!";
   static String login = "Login";
   static String forgotPass = "Forgot Password";
