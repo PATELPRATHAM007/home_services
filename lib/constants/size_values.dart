@@ -27,7 +27,7 @@ class TSizeValues {
 
   //login & sign up page 
   static const double mianContWidth = 900;
-  static const double mianContHeight = 550;
+  static const double mianContHeight = 570;
   static const double mianContRadious = 90;
   static const double mianContShadowRadious = 90;
 

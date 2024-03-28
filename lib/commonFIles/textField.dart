@@ -1,37 +1,40 @@
 import 'package:flutter/material.dart';
 
-// ignore: must_be_immutable
-class LTextField extends StatelessWidget {
-  LTextField(
-      {super.key,
-      required this.controller,
-      required this.hitText,
-      required this.lableText,
-      required this.perfixIcon,
-      required this.suffixIcon,
-      required this.obscureText});
-
-  TextEditingController controller;
-  String lableText;
-  String hitText;
-  IconData perfixIcon;
+class CommonTextField extends StatelessWidget {
+  final TextEditingController controller;
+  final String labelText;
+  final String hintText;
+  final IconData prefixIcon;
   Widget ? suffixIcon;
-  bool obscureText;
-  
+
+  final Color? suffixIconColor;
+  final bool obscureText;
+  final Function(String) onChanged;
+
+    CommonTextField({super.key, 
+    required this.controller,
+    required this.labelText,
+    required this.hintText,
+    required this.prefixIcon,
+    this.suffixIcon,
+    this.suffixIconColor,
+    this.obscureText = false,
+    required this.onChanged,
+  });
 
   @override
   Widget build(BuildContext context) {
     return TextField(
       controller: controller,
+      onChanged: onChanged,
       obscureText: obscureText,
       decoration: InputDecoration(
-        labelText: lableText,
-        hintText: hitText,
+        labelText: labelText,
+        hintText: hintText,
         labelStyle: const TextStyle(color: Colors.grey),
         hintStyle: const TextStyle(color: Colors.grey),
-        prefixIcon: Icon(perfixIcon, color: Colors.grey),
+        prefixIcon: Icon(prefixIcon, color: Colors.grey),
         suffixIcon: suffixIcon,
-        suffixIconColor: const Color.fromARGB(255, 134, 134, 134),
         filled: true,
         fillColor: Colors.white,
         contentPadding: const EdgeInsets.symmetric(horizontal: 35),

@@ -1,66 +1,128 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 import 'package:home_services/commonFIles/logoSection.dart';
+import 'package:home_services/constants/colors.dart';
 import 'package:home_services/constants/size_values.dart';
 import 'package:home_services/utils/responsiveWeb/responsive.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:dots_indicator/dots_indicator.dart';
 
 class ServicesPage extends StatefulWidget {
-  const ServicesPage({super.key});
+  const ServicesPage({Key? key}) : super(key: key);
 
   @override
   State<ServicesPage> createState() => _ServicesPageState();
 }
 
 class _ServicesPageState extends State<ServicesPage> {
+  bool isScrollable = false;
+  final GlobalKey _firstContainerKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:  PreferredSize(
-        preferredSize: const Size(double.infinity,70),
-        child: Builder(
-          builder:(context) {
-            if (Responsive.isDesktop(context)) {
-              return Row(
-                children: [
-                  Expanded(
-                    flex: 1,
-                    child: CLogoSection(
-                      logoWidth: TSizeValues.logoWidth,
-                      logoHeight: TSizeValues.logoHeight,
-                      gap: TSizeValues.logoGap,
-                    ),
+        body: Row(
+      children: [
+        Expanded(
+          flex: 2,
+          child: Column(
+            children: [
+              Text("data"),
+              Text("data"),
+              Container(
+                height: 500,
+                width: 300,
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.black),
+                ),
+                child: GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3,
+                    mainAxisSpacing: 10,
+                    crossAxisSpacing: 10,
                   ),
-                  Expanded(
-                    flex: 4,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: List.generate(
-                        5,
-                        (index) {
-                          return Padding(
-                            padding: const EdgeInsets.all(10),
-                            child: TextButton(
-                              onPressed: () {
-                                // add event
+                  itemBuilder: (context, index) {
+                    return Container(
+                      width: 100,
+                      height: 100,
+                      color: Colors.blue,
+                    );
+                  },
+                  itemCount: 7,
+                ),
+              )
+            ],
+          ),
+        ),
+        Expanded(
+          flex: 5,
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Container(
+                  key: _firstContainerKey,
+                  width: 900,
+                  height: 500,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.blue),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    
+                    SingleChildScrollView(
+                      physics: AlwaysScrollableScrollPhysics(),
+                      child: Column(
+                        children: [
+                          Container(
+                            height: 900,
+                            width: 500,
+                            color: Colors.pink,
+                            child: ListView.builder(
+                              physics: NeverScrollableScrollPhysics(),
+                              itemCount: 20,
+                              itemBuilder: (context, index) {
+                                return Column(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Container(
+                                        width: 200,
+                                        height: 200,
+                                        color: Colors.blue,
+                                      ),
+                                    ),
+                                    SizedBox(height: 10,),
+                                  ],
+                                );
                               },
-                              child: const Text("data"),
                             ),
-                          );
-                        },
+                          ),
+                        ],
                       ),
                     ),
-                  ),
-                ],
-              );
-            }
-             else {
-                // Return an empty AppBar if not desktop
-                return AppBar(
-                  title: const Text('AppBar Title'),
-                );
-              }
-          },
-        ),
-      ),
-    );
+                    Column(
+                      children: [
+                        Container(
+                          width: 300,
+                          height: 400,
+                          color: Colors.blueGrey,
+                        )
+                      ],
+                    ),
+                  ],
+                )
+              ],
+            ),
+          ),
+        )
+      ],
+    ));
   }
 }

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:home_services/commonFIles/logoSection.dart';
+import 'package:home_services/commonFIles/logoSectionStyle.dart';
 import 'package:home_services/constants/colors.dart';
 import 'package:home_services/constants/size_values.dart';
-import 'package:home_services/utils/loginPageContent/textField.dart';
+import 'package:home_services/commonFIles/textField.dart';
 import 'package:home_services/utils/login_Page.dart';
 
 class TSignUpPage extends StatefulWidget {
@@ -27,8 +28,8 @@ class _TSignUpPageState extends State<TSignUpPage> {
 
   @override
   Widget build(BuildContext context) {
-    // Size screenSize = MediaQuery.of(context).size;
-    TextEditingController textController = TextEditingController();
+    Size screenSize = MediaQuery.of(context).size;
+    TextEditingController _textController = TextEditingController();
     return Scaffold(
         body: Stack(
       children: [
@@ -159,21 +160,23 @@ class _TSignUpPageState extends State<TSignUpPage> {
                               ),
                               itemBuilder: (BuildContext context, int index) {
                                 // You can customize the content of each grid item (rectangle) here
-                                return ElevatedButton(
-                                    onPressed: () {},
-                                    style: ElevatedButton.styleFrom(
-                                        elevation: 0,
-                                        shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(20),
-                                            side: const BorderSide(
-                                                color: Colors.grey,
-                                                width: 1.5)),
-                                        backgroundColor: TColors.white),
-                                    child: const Icon(
-                                      Icons.alarm,
-                                      color: Colors.grey,
-                                    ));
+                                return Container(
+                                  child: ElevatedButton(
+                                      onPressed: () {},
+                                      style: ElevatedButton.styleFrom(
+                                          elevation: 0,
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(20),
+                                              side: const BorderSide(
+                                                  color: Colors.grey,
+                                                  width: 1.5)),
+                                          backgroundColor: TColors.white),
+                                      child: const Icon(
+                                        Icons.alarm,
+                                        color: Colors.grey,
+                                      )),
+                                );
                               },
                               itemCount: 3, // Total number of items in the grid
                             ),
@@ -200,29 +203,29 @@ class _TSignUpPageState extends State<TSignUpPage> {
                           padding: const EdgeInsets.symmetric(horizontal: 40),
                           child: Row(
                             children: [
-                              SizedBox(
-                                width: (900 * .55) / 2.5,
-                                child: LTextField(
-                                    controller: textController,
-                                    lableText: "First Name",
-                                    hitText: "Enter first Name",
-                                    perfixIcon: Icons.person,
-                                    suffixIcon: null,
-                                    obscureText: false),
-                              ),
+                              // SizedBox(
+                              //   width: (900 * .55) / 2.5,
+                              //   child: LTextField(
+                              //       controller: _textController,
+                              //       lableText: "First Name",
+                              //       hitText: "Enter first Name",
+                              //       perfixIcon: Icons.person,
+                              //       suffixIcon: null,
+                              //       obscureText: false, validator: (value) {  },),
+                              // ),
                               const SizedBox(
                                 width: 15,
                               ),
-                              SizedBox(
-                                width: (900 * .55) / 2.5,
-                                child: LTextField(
-                                    controller: textController,
-                                    lableText: "Last Name",
-                                    hitText: "Enter Last Name",
-                                    perfixIcon: Icons.person,
-                                    suffixIcon: null,
-                                    obscureText: false),
-                              ),
+                              // SizedBox(
+                              //   width: (900 * .55) / 2.5,
+                              //   child: LTextField(
+                              //       controller: _textController,
+                              //       lableText: "Last Name",
+                              //       hitText: "Enter Last Name",
+                              //       perfixIcon: Icons.person,
+                              //       suffixIcon: null,
+                              //       obscureText: false, validator: (value) {  },),
+                              // ),
                             ],
                           ),
                         ),
@@ -231,39 +234,40 @@ class _TSignUpPageState extends State<TSignUpPage> {
                         ),
 
                         // email field
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 40),
-                          child: LTextField(
-                              controller: emailController,
-                              lableText: "Email",
-                              hitText: "Enter your E-mail",
-                              perfixIcon: Icons.email_outlined,
-                              suffixIcon: null,
-                              obscureText: false),
-                        ),
+                        // Padding(
+                        //   padding: const EdgeInsets.symmetric(horizontal: 40),
+                        //   child: LTextField(
+                        //       controller: emailController,
+                        //       lableText: "Email",
+                        //       hitText: "Enter your E-mail",
+                        //       perfixIcon: Icons.email_outlined,
+                        //       suffixIcon: null,
+                        //       obscureText: false, validator: (value) {  },),
+                        // ),
                         const SizedBox(
                           height: 15,
                         ),
+                        
 
                         // password field
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 40),
-                          child: LTextField(
-                            controller: passwordController,
-                            lableText: "Password",
-                            hitText: "Enter your password",
-                            perfixIcon: Icons.email_outlined,
-                            obscureText: _showPassword,
-                            suffixIcon: IconButton(
-                              icon: Icon(
-                                _showPassword
-                                    ? Icons.visibility
-                                    : Icons.visibility_off,
-                              ),
-                              onPressed: passwordVisibility,
-                            ),
-                          ),
-                        ),
+                        // Padding(
+                        //   padding: const EdgeInsets.symmetric(horizontal: 40),
+                        //   child: CommonTextField(
+                        //     controller: passwordController,
+                        //     lableText: "Password",
+                        //     hitText: "Enter your password",
+                        //     perfixIcon: Icons.email_outlined,
+                        //     obscureText: _showPassword,
+                        //     suffixIcon: IconButton(
+                        //       icon: Icon(
+                        //         _showPassword
+                        //             ? Icons.visibility
+                        //             : Icons.visibility_off,
+                        //       ),
+                        //       onPressed: passwordVisibility,
+                        //     ), validator: (value) {  },
+                        //   ),
+                        // ),
 
                         Padding(
                           padding: const EdgeInsets.symmetric(
