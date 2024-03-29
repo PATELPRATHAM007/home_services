@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:home_services/utils/login_Page.dart';
+
 
 class NavLoginButton extends StatefulWidget {
   const NavLoginButton({super.key});
@@ -12,14 +14,15 @@ class _NavLoginButtonState extends State<NavLoginButton> {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const TLoginPage(),
-          ),
-        );
-      },
+      onPressed: () =>  context.go('/login'),
+      // onPressed: () {
+      //   Navigator.push(
+      //     context,
+      //     MaterialPageRoute(
+      //       builder: (context) => const TLoginPage(),
+      //     ),
+      //   );
+      // },
       style: ElevatedButton.styleFrom(
           backgroundColor: const Color.fromARGB(255, 50, 88, 220),
           minimumSize: const Size(100, 50),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:home_services/constants/colors.dart';
 import 'package:home_services/constants/size_values.dart';
 import 'package:home_services/constants/text_strings.dart';
@@ -48,7 +49,7 @@ class TLoginRightSideContainer extends StatelessWidget {
           height: 42,
           width: 250,
           child: ElevatedButton(
-            onPressed: () =>  TPageRouting(context).reachSignUpPage(),
+            onPressed: () =>  context.go('/signup'),
             style: ElevatedButton.styleFrom(backgroundColor: TColors.white),
             child: Text(
               TTextStrings.signUp,

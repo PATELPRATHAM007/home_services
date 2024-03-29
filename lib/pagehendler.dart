@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:home_services/addToCart.dart';
+import 'package:home_services/pageRouting/pageRoutingConfig.dart';
 // import 'package:home_services/utils/fsfsfsfasfafasf.dart';
 import 'package:home_services/utils/home_page.dart';
 import 'package:home_services/utils/login_Page.dart';
@@ -13,9 +14,10 @@ class PageHendler extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       theme: ThemeData(useMaterial3: true, fontFamily: "GoogleProductSans"),
-      home: TSignUpPage(),
+      routerConfig: TPagerouting().router,
+      // home: TSignUpPage(),
     );
   }
 }

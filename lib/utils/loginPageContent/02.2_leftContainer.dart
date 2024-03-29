@@ -1,10 +1,13 @@
 import 'dart:async';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:home_services/commonFIles/logoSection.dart';
 import 'package:home_services/constants/colors.dart';
 import 'package:home_services/constants/size_values.dart';
 import 'package:home_services/constants/text_strings.dart';
 import 'package:home_services/commonFIles/textField.dart';
+import 'package:home_services/services/Firebase_auth_Services.dart';
 import 'package:home_services/validation/fieldValidation.dart';
 
 class TLoginLeftSideContainer extends StatefulWidget {
@@ -16,12 +19,15 @@ class TLoginLeftSideContainer extends StatefulWidget {
 }
 
 class _TLoginLeftSideContainerState extends State<TLoginLeftSideContainer> {
-  TextEditingController emailController = TextEditingController();
+
+   final FirebaseAuthService _auth = FirebaseAuthService();
+   
+  TextEditingController phoneNumberOrEmailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   final Validator validator = Validator();
 
-  bool emailValid = true;
-  String emailErrorMessage = '';
+ String phoneNumber = '';
+  String email = '';
   bool passwordValid = true;
   String passwordErrorMessage = '';
   Timer? _timer;
@@ -32,8 +38,11 @@ class _TLoginLeftSideContainerState extends State<TLoginLeftSideContainer> {
   @override
   void dispose() {
     _timer?.cancel();
+    phoneNumberOrEmailController.dispose();
+    passwordController.dispose();
     super.dispose();
   }
+
 
   void _startTimer(Function function) {
     _timer?.cancel();
@@ -42,23 +51,22 @@ class _TLoginLeftSideContainerState extends State<TLoginLeftSideContainer> {
     });
   }
 
-  void updateEmailValidation(String value) {
-    setState(() {
-      emailErrorMessage = '';
-      _startTimer(() {
-        setState(() {
-          emailValid = validator.validateEmail(value);
-          emailErrorMessage = validator.getEmailErrorMessage(value);
-          if (emailController.text.isNotEmpty) {
-              if (emptyFields.contains('password')) {
-                emptyFields.remove('password');
-                setState(() {}); // Refresh UI to update error messages
-              }
-          }
-        });
-      });
-    });
-  }
+  void updatePhoneNumberOrEmail(String value) {
+  setState(() {
+    // Check if the input matches a phone number format
+    if (RegExp(r'^[0-9]{10}$').hasMatch(value)) {
+      phoneNumber = value;
+      email = ''; // Clear email if it's a phone number
+    }
+    // Check if the input matches an email format
+    else if (RegExp(
+            r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
+        .hasMatch(value)) {
+      email = value;
+      phoneNumber = ''; // Clear phone number if it's an email
+    }
+  });
+}
 
   void updatePasswordValidation(String value) {
     setState(() {
@@ -86,9 +94,9 @@ class _TLoginLeftSideContainerState extends State<TLoginLeftSideContainer> {
   }
 
   final List<Image> logos = [
-    Image.asset("assets/images/search.png", width: 28, height: 28),
-    Image.asset("assets/images/facebook.png", width: 32, height: 32),
-    Image.asset("assets/images/twitter.png", width: 32, height: 32),
+    Image.asset("assets/images/search.png", width: 20, height: 20),
+    Image.asset("assets/images/facebook.png", width: 24, height: 24),
+    Image.asset("assets/images/twitter.png", width: 24, height: 24),
   ];
 
   @override
@@ -121,18 +129,14 @@ class _TLoginLeftSideContainerState extends State<TLoginLeftSideContainer> {
         //space
         const SizedBox(height: 20),
         // email field
-        emailField(),
+        emailFieldOrPhoneNo(),
         //email validtor
-        if (!emailValid && emailController.text.isNotEmpty)
-          invalidEmailException(),
+        //
         //space
         const SizedBox(height: 15),
         //password field
         passwordField(),
         // passwordvalidator
-        if (!passwordValid && passwordController.text.isNotEmpty)
-          invalidPasswordException(),
-
         // forgot password
         forgotPassword(),
         // login button
@@ -162,39 +166,6 @@ class _TLoginLeftSideContainerState extends State<TLoginLeftSideContainer> {
   );
   }
 
-  Padding invalidPasswordException() {
-    return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 50),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Flexible(
-                // Wrap with Flexible
-                child: Text(
-                  passwordErrorMessage,
-                  style: const TextStyle(color: Colors.red),
-                ),
-              ),
-            ],
-          ),
-        );
-  }
-
-  Padding invalidEmailException() {
-    return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 50),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Text(
-                emailErrorMessage,
-                style: const TextStyle(color: Colors.red),
-              ),
-            ],
-          ),
-        );
-  }
-
   Padding loginButton() {
     return Padding(
       padding: const EdgeInsets.only(top: 15,left: 20,right: 20,bottom: 2),
@@ -203,7 +174,7 @@ class _TLoginLeftSideContainerState extends State<TLoginLeftSideContainer> {
         width: TSizeValues.lsbtnwidth,
         child: ElevatedButton(
           onPressed:() {
-          if (emailController.text.isEmpty) {
+          if (phoneNumberOrEmailController.text.isEmpty) {
             if(!emptyFields.contains('Email')){
             emptyFields.add('Email');
 
@@ -214,7 +185,9 @@ class _TLoginLeftSideContainerState extends State<TLoginLeftSideContainer> {
 
             emptyFields.add('Password');
             }
+
           }
+            _signup();
 
           setState(() {}); // Refresh UI to show error messages
         },
@@ -266,7 +239,7 @@ class _TLoginLeftSideContainerState extends State<TLoginLeftSideContainer> {
         onChanged: updatePasswordValidation,
         suffixIcon: IconButton(
           icon: Icon(
-            _showPassword ? Icons.visibility : Icons.visibility_off,
+            _showPassword ? Icons.visibility : Icons.visibility_off,color: Colors.grey,
           ),
           onPressed: passwordVisibility,
         ),
@@ -274,15 +247,15 @@ class _TLoginLeftSideContainerState extends State<TLoginLeftSideContainer> {
     );
   }
 
-  Padding emailField() {
+  Padding emailFieldOrPhoneNo() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: TSizeValues.fieldPadding),
       child: CommonTextField(
-        controller: emailController,
-        labelText: 'Email',
-        hintText: 'Enter your email',
+        controller: phoneNumberOrEmailController,
+        labelText: 'Email or Phone no.',
+        hintText: 'Enter your email or Phone Number',
         prefixIcon: Icons.email,
-        onChanged: updateEmailValidation,
+        onChanged: updatePhoneNumberOrEmail,
         suffixIcon: null,
       ),
     );
@@ -308,17 +281,17 @@ class _TLoginLeftSideContainerState extends State<TLoginLeftSideContainer> {
         3,
         (index) {
           return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 14,vertical: 8),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 4),
             child: InkWell(
               onTap: () {
                 // open google login
               },
               child: Container(
-                width: 60,
-                height: 60,
+                width: 50,
+                height: 50,
                 decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.circular(20),
+                    shape: BoxShape.circle,
                     boxShadow: [
                       BoxShadow(
                           blurRadius: 5,
@@ -331,7 +304,7 @@ class _TLoginLeftSideContainerState extends State<TLoginLeftSideContainer> {
           );
         },
       ),
-    );
+    ) ;
   }
 
   Center welcomeText() {
@@ -358,5 +331,22 @@ class _TLoginLeftSideContainerState extends State<TLoginLeftSideContainer> {
         ],
       ),
     );
+  }
+
+  void _signup() async{
+    
+    String email = phoneNumberOrEmailController.text;
+    String password = passwordController.text;
+    
+
+    User ? user = await _auth.loginWithEmailAndPassword(email, password);
+
+    if (user != null) {
+       // ignore: use_build_context_synchronously
+       context.go('/');
+    }
+    else{
+      print("some error are there");
+    }
   }
 }
