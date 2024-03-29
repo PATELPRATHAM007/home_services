@@ -16,5 +16,6 @@ void main() async {
       measurementId: "G-KH01MW5K7Y",
     ),
   );
+  await Firebase.initializeApp();
   runApp(const PageHendler());
 }

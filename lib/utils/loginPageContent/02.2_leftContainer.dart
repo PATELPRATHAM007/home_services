@@ -26,6 +26,9 @@ class _TLoginLeftSideContainerState extends State<TLoginLeftSideContainer> {
   String passwordErrorMessage = '';
   Timer? _timer;
 
+  List<String> emptyFields = [];
+  String ? errorMessage;
+
   @override
   void dispose() {
     _timer?.cancel();
@@ -46,6 +49,12 @@ class _TLoginLeftSideContainerState extends State<TLoginLeftSideContainer> {
         setState(() {
           emailValid = validator.validateEmail(value);
           emailErrorMessage = validator.getEmailErrorMessage(value);
+          if (emailController.text.isNotEmpty) {
+              if (emptyFields.contains('password')) {
+                emptyFields.remove('password');
+                setState(() {}); // Refresh UI to update error messages
+              }
+          }
         });
       });
     });
@@ -58,6 +67,12 @@ class _TLoginLeftSideContainerState extends State<TLoginLeftSideContainer> {
         setState(() {
           passwordValid = validator.validatePassword(value);
           passwordErrorMessage = validator.getPasswordErrorMessage(value);
+           if (passwordController.text.isNotEmpty) {
+            if (emptyFields.contains('password')) {
+                emptyFields.remove('password');
+                setState(() {}); // Refresh UI to update error messages
+              }
+          }
         });
       });
     });
@@ -122,8 +137,29 @@ class _TLoginLeftSideContainerState extends State<TLoginLeftSideContainer> {
         forgotPassword(),
         // login button
         loginButton(),
+        if (emptyFields.isNotEmpty) 
+          emptyField()
       ],
     );
+  }
+
+  Padding emptyField() {
+     String errorMessage = emptyFields.join(', ');
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 50),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Flexible(
+          // Wrap with Flexible
+          child: Text(
+            '$errorMessage is empty',
+            style: const TextStyle(color: Colors.red, height: 1.1),
+          ),
+        ),
+      ],
+    ),
+  );
   }
 
   Padding invalidPasswordException() {
@@ -161,14 +197,27 @@ class _TLoginLeftSideContainerState extends State<TLoginLeftSideContainer> {
 
   Padding loginButton() {
     return Padding(
-      padding: const EdgeInsets.symmetric(
-        vertical: 15,
-      ),
+      padding: const EdgeInsets.only(top: 15,left: 20,right: 20,bottom: 2),
       child: SizedBox(
         height: TSizeValues.lsbtnHeight,
         width: TSizeValues.lsbtnwidth,
         child: ElevatedButton(
-          onPressed: () {},
+          onPressed:() {
+          if (emailController.text.isEmpty) {
+            if(!emptyFields.contains('Email')){
+            emptyFields.add('Email');
+
+            }
+          }
+          if (passwordController.text.isEmpty) {
+            if(!emptyFields.contains('Password')){
+
+            emptyFields.add('Password');
+            }
+          }
+
+          setState(() {}); // Refresh UI to show error messages
+        },
           style: ElevatedButton.styleFrom(
               backgroundColor: const Color.fromARGB(255, 50, 88, 220)),
           child: Text(
