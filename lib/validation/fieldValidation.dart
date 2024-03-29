@@ -25,6 +25,7 @@ class Validator {
     if (password.length > 16) return 'Password length should be under 16 characters';
     
     List<String> errorMessages = [];
+    if ((password.length < 8 || password.length > 16)) errorMessages.add('Password length 8-16');
     if (!password.contains(RegExp(r'[A-Z]'))) errorMessages.add('Add at least one uppercase letter');
     if (!password.contains(RegExp(r'[0-9]'))) errorMessages.add('Add at least one number');
     if (!password.contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'))) errorMessages.add('Add at least one special character');
