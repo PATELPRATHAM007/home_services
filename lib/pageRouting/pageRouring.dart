@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:home_services/utils/login_Page.dart';
 import 'package:home_services/utils/signUp_page.dart';
 class TPageRouting {
   TPageRouting(this.context); // Constructor to initialize context
@@ -8,6 +9,12 @@ class TPageRouting {
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => const TSignUpPage()),
+    );
+  }
+  void reachLoginPage() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const TLoginPage()),
     );
   }
 }

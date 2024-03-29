@@ -1,14 +1,4 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
-import 'package:home_services/commonFIles/logoSection.dart';
-import 'package:home_services/constants/colors.dart';
-import 'package:home_services/constants/size_values.dart';
-import 'package:home_services/utils/responsiveWeb/responsive.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:dots_indicator/dots_indicator.dart';
 
 class ServicesPage extends StatefulWidget {
   const ServicesPage({Key? key}) : super(key: key);

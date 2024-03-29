@@ -13,7 +13,7 @@ class TLoginRightSideContainer extends StatelessWidget {
       width: TSizeValues.subContWidth2,
       height: TSizeValues.subContheight2,
       color: const Color.fromARGB(255, 50, 88, 220),
-      child: contents(context), 
+      child: contents(context),
     );
   }
 

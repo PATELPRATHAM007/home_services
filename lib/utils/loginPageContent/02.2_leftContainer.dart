@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:home_services/commonFIles/logoSection.dart';
 import 'package:home_services/constants/colors.dart';
@@ -72,9 +71,9 @@ class _TLoginLeftSideContainerState extends State<TLoginLeftSideContainer> {
   }
 
   final List<Image> logos = [
-    Image.asset("assets/images/search.png", width: 42, height: 42),
-    Image.asset("assets/images/facebook.png", width: 45, height: 45),
-    Image.asset("assets/images/twitter.png", width: 45, height: 45),
+    Image.asset("assets/images/search.png", width: 28, height: 28),
+    Image.asset("assets/images/facebook.png", width: 32, height: 32),
+    Image.asset("assets/images/twitter.png", width: 32, height: 32),
   ];
 
   @override
@@ -260,14 +259,14 @@ class _TLoginLeftSideContainerState extends State<TLoginLeftSideContainer> {
         3,
         (index) {
           return Padding(
-            padding: const EdgeInsets.all(8),
+            padding: const EdgeInsets.symmetric(horizontal: 14,vertical: 8),
             child: InkWell(
               onTap: () {
                 // open google login
               },
               child: Container(
-                width: 80,
-                height: 80,
+                width: 60,
+                height: 60,
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(20),
