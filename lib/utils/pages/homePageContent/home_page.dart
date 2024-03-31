@@ -1,11 +1,11 @@
 import "package:flutter/material.dart";
-import 'package:home_services/commonFIles/footer.dart';
+import 'package:home_services/commonFIles/footerComponents/footer.dart';
 import 'package:home_services/constants/colors.dart';
-import 'package:home_services/commonFIles/navigationBar.dart';
-import 'package:home_services/utils/homePageContent/01_greetingSection.dart';
-import 'package:home_services/utils/homePageContent/02_services.dart';
-import 'package:home_services/utils/homePageContent/03_why_choose_us.dart';
-import 'package:home_services/utils/homePageContent/04_booking_process.dart';
+import 'package:home_services/commonFIles/navComponents/navigationBar.dart';
+import 'package:home_services/utils/pages/homePageContent/01_greetingSection.dart';
+import 'package:home_services/utils/pages/homePageContent/02_services.dart';
+import 'package:home_services/utils/pages/homePageContent/03_why_choose_us.dart';
+import 'package:home_services/utils/pages/homePageContent/04_booking_process.dart';
 
 class THomePage extends StatefulWidget {
   const THomePage({super.key});

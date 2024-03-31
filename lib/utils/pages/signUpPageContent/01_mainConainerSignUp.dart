@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:home_services/constants/colors.dart';
-import 'package:home_services/utils/signUpPageContent/02.1_leftConainerSignUp.dart';
-import 'package:home_services/utils/signUpPageContent/02.2_rightContainerSignUp.dart';
+import 'package:home_services/utils/pages/signUpPageContent/02.1_leftConainerSignUp.dart';
+import 'package:home_services/utils/pages/signUpPageContent/02.2_rightContainerSignUp.dart';
 
 Widget mainContainerSignUp({required BuildContext context}) {
   return IntrinsicHeight(

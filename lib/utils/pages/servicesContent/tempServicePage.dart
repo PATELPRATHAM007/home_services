@@ -2,7 +2,7 @@ import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:flutter/widgets.dart";
 import "package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart";
-import "package:home_services/commonFIles/navigationBar.dart";
+import "package:home_services/commonFIles/navComponents/navigationBar.dart";
 
 class TServicePage extends StatefulWidget {
   const TServicePage({super.key});

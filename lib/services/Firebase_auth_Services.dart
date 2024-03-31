@@ -22,13 +22,4 @@ class FirebaseAuthService {
       return null; // Return null to indicate failure
     }
   }
-  Future<User?> loginWithPhoneNumber(String email, String password) async {
-    try {
-      UserCredential credential = await _auth.verifyPhoneNumber();   
-      return credential.user;
-    } catch (e) {
-      print("Error: $e");
-      return null; // Return null to indicate failure
-    }
-  }
 }

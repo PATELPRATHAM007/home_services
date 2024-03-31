@@ -1,6 +1,5 @@
 class Validator {
   bool validateEmail(String email) {
-    // Simple email validation using regex
     return RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(email);
   }
 

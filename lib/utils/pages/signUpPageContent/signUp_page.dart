@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:home_services/utils/signUpPageContent/01_mainConainerSignUp.dart';
+import 'package:home_services/utils/pages/signUpPageContent/01_mainConainerSignUp.dart';
 
 class TSignUpPage extends StatelessWidget {
   const TSignUpPage({super.key});

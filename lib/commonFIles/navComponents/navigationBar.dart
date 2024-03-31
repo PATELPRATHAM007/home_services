@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:home_services/commonFIles/logoSection.dart';
-import 'package:home_services/commonFIles/navLinks.dart';
-import 'package:home_services/commonFIles/navloginButton.dart';
+import 'package:home_services/commonFIles/logoComponents/logo.dart';
+import 'package:home_services/commonFIles/navComponents/navLinks.dart';
+import 'package:home_services/commonFIles/navComponents/navloginButton.dart';
 import 'package:home_services/constants/colors.dart';
 import 'package:home_services/constants/size_values.dart';
 
@@ -36,8 +36,4 @@ class _TNavigationBarState extends State<TNavigationBar> {
       ),
     );
   }
-}
-
-class NavLogoSection {
-  const NavLogoSection();
 }

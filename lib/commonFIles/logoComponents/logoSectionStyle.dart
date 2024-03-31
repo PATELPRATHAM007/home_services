@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:home_services/constants/size_values.dart';
-
 class CTextStyle {
   // Company name Style
   static TextStyle companyTextStyle({

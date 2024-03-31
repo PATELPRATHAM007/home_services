@@ -1,7 +1,6 @@
 import "package:flutter/material.dart";
-import "package:home_services/commonFIles/logoSectionStyle.dart";
+import "package:home_services/commonFIles/logoComponents/logoSectionStyle.dart";
 import "package:home_services/constants/colors.dart";
-
 import "package:home_services/constants/image_strings.dart";
 import "package:home_services/constants/size_values.dart";
 import "package:home_services/constants/text_strings.dart";
@@ -55,3 +54,4 @@ class CLogoSection extends StatelessWidget {
     );
   }
 }
+

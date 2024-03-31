@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:home_services/constants/colors.dart';
 import 'package:home_services/constants/size_values.dart';
-import 'package:home_services/utils/loginPageContent/02.1_rightContainer.dart';
-import 'package:home_services/utils/loginPageContent/02.2_leftContainer.dart';
+import 'package:home_services/utils/pages/loginPageContent/02.1_rightContainer.dart';
+import 'package:home_services/utils/pages/loginPageContent/02.2_leftContainer.dart';
 
 Widget mainContainer({required BuildContext context}) {
   return IntrinsicHeight(

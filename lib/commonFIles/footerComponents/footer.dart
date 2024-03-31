@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:home_services/commonFIles/logoSection.dart';
+import 'package:home_services/commonFIles/logoComponents/logo.dart';
 import 'package:home_services/constants/colors.dart';
 import 'package:home_services/constants/size_values.dart';
 

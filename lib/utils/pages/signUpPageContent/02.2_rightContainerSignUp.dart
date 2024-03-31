@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
-import 'package:home_services/commonFIles/logoSection.dart';
+import 'package:home_services/commonFIles/logoComponents/logo.dart';
 import 'package:home_services/commonFIles/textField.dart';
 import 'package:home_services/constants/colors.dart';
 import 'package:home_services/constants/size_values.dart';
