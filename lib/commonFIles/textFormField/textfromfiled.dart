@@ -8,8 +8,10 @@ class CTextFromField extends StatelessWidget {
     required this.label,
     required this.valid,
     this.obscuretext,
+    this.maxlen,
     this.fillcolor,
-    this.onChanged,
+    this.preFix,
+    this.onChanged, 
     this.prefixIcon,
     this.suffixIcon,
     this.suffixIconColor,
@@ -21,8 +23,10 @@ class CTextFromField extends StatelessWidget {
   String? Function(String?) ? valid;
   final Function(String) ? onChanged;
   Color ? fillcolor;
+  final int ? maxlen;
   final Widget ?  prefixIcon;
   Widget? suffixIcon;
+  Widget? preFix;
   final Color? suffixIconColor;
   final bool ? obscuretext;
   
@@ -35,9 +39,11 @@ class CTextFromField extends StatelessWidget {
       validator: valid,
       controller: controller,
       onChanged: (value) {},
+      maxLength: maxlen,
       decoration: InputDecoration(
         labelText: label,
         hintText: hint,
+        prefix: preFix,
         filled: true,
         fillColor: fillcolor ?? Colors.white,
         prefixIcon: prefixIcon,

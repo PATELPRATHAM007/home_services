@@ -274,7 +274,7 @@ class _TLoginLeftSideContainerState extends State<TLoginLeftSideContainer> {
     );
   }
 
-  Row loginMethod() {
+  Row   loginMethod() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: List.generate(

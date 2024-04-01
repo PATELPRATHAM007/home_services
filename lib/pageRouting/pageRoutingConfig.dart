@@ -31,7 +31,7 @@ class TPagerouting {
      GoRoute(
       path: '/temp',
       builder: (BuildContext context, GoRouterState state) {
-        return  MyApp();
+        return  UserProfileView();
       },
      ),
      GoRoute(
