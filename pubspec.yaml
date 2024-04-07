@@ -59,7 +59,8 @@ dependencies:
   form_field_validator: ^1.1.0
   csc_picker: ^0.2.7
   image_picker: ^1.0.7
-
+  get: ^4.6.6
+  intl: ^0.17.0
 
   
 dev_dependencies:

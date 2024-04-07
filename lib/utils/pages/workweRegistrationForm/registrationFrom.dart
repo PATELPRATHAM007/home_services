@@ -164,8 +164,7 @@ class _TRegistrationFromState extends State<TRegistrationFrom> {
                                 height: 10,
                               ),
                               Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: List.generate(
                                   3,
@@ -320,6 +319,7 @@ class _TRegistrationFromState extends State<TRegistrationFrom> {
                                 ],
                               ),
                               Row(
+                                
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -376,6 +376,11 @@ class _TRegistrationFromState extends State<TRegistrationFrom> {
                                             ),
                                           ],
                                         ),
+                                        if (showError)
+                                          Text(
+                                            'Please select a gender',
+                                            style: TextStyle(color: Colors.red),
+                                          ),
                                       ],
                                     ),
                                   ),
@@ -419,12 +424,19 @@ class _TRegistrationFromState extends State<TRegistrationFrom> {
                                   ),
                                 ],
                               ),
+                              
+                              CTextFromField(
+                                hint: "Enter your address....",
+                                label: "Address",
+                                controller: _address,
+                                valid: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Addess is required';
+                                  }
+                                  return null;
+                                },
+                              ),
                               SizedBox(height: 8),
-                              if (showError)
-                                Text(
-                                  'Please select a gender',
-                                  style: TextStyle(color: Colors.red),
-                                ),
                               SizedBox(height: 160),
                               ElevatedButton(
                                 onPressed: () {
