@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:home_services/commonFIles/logoComponents/logo.dart';
 import 'package:home_services/constants/colors.dart';
 import 'package:home_services/constants/size_values.dart';
+import 'package:home_services/utils/localData/footernavData.dart';
+import 'package:home_services/utils/localData/sociallinksdata.dart';
 
 Widget footerSection({
   required double screenSizeheight,
@@ -48,7 +50,7 @@ Widget footerSection({
                     "Company",
                     style: TextStyle(
                         color: Colors.white,
-                        fontSize: 24,
+                        fontSize: 22,
                         fontWeight: FontWeight.w500,
                         letterSpacing: 1.2),
                   ),
@@ -58,85 +60,15 @@ Widget footerSection({
                   Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: List.generate(
-                        6,
+                        footernavLinksSection1.length,
                         (index) {
                           return TextButton(
                             onPressed: () {},
-                            child: const Text(
-                              "hello",
-                              style: TextStyle(
+                            child:  Text(
+                              footernavLinksSection1[index].textButton,
+                              style: const TextStyle(
                                 color: Colors.white,
-                                fontSize: 18,
-                                height: 2,
-                                fontWeight: FontWeight.w300,
-                                letterSpacing: 1.2,
-                              ),
-                            ),
-                          );
-                        },
-                      ))
-                ],
-              ),
-              Column(
-                children: [
-                  const Text(
-                    "Company",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 24,
-                        fontWeight: FontWeight.w500,
-                        letterSpacing: 1.2),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: List.generate(
-                        4,
-                        (index) {
-                          return TextButton(
-                            onPressed: () {},
-                            child: const Text(
-                              "hello",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18,
-                                height: 2,
-                                fontWeight: FontWeight.w300,
-                                letterSpacing: 1.2,
-                              ),
-                            ),
-                          );
-                        },
-                      ))
-                ],
-              ),
-              Column(
-                children: [
-                  const Text(
-                    "Company",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 24,
-                        fontWeight: FontWeight.w500,
-                        letterSpacing: 1.2),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: List.generate(
-                        2,
-                        (index) {
-                          return TextButton(
-                            onPressed: () {},
-                            child: const Text(
-                              "hello",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18,
+                                fontSize: 16,
                                 height: 2,
                                 fontWeight: FontWeight.w300,
                                 letterSpacing: 1.2,
@@ -151,10 +83,83 @@ Widget footerSection({
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
+                    "For customers",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 22,
+                        fontWeight: FontWeight.w500,
+                        letterSpacing: 1.2),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: List.generate(
+                        footernavLinksSection2.length,
+                        (index) {
+                          return TextButton(
+                            onPressed: () {},
+                            child:  Text(
+                              footernavLinksSection1[index].textButton,
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                                height: 2,
+                                fontWeight: FontWeight.w300,
+                                letterSpacing: 1.2,
+                              ),
+                            ),
+                          );
+                        },
+                      ))
+                ],
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    "For partners",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 22,
+                        fontWeight: FontWeight.w500,
+                        letterSpacing: 1.2),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: List.generate(
+                        1,
+                        (index) {
+                          return TextButton(
+                            onPressed: () {},
+                            child:  Text(
+                              footernavLinksSection3.textButton,
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                                height: 2,
+                                fontWeight: FontWeight.w300,
+                                letterSpacing: 1.2,
+                              ),
+                            ),
+                          );
+                        },
+                      ))
+                ],
+              ),
+              const SizedBox(width: 20,),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
                     "Company",
                     style: TextStyle(
                         color: Colors.white,
-                        fontSize: 24,
+                        fontSize: 22,
                         fontWeight: FontWeight.w500,
                         letterSpacing: 1.2),
                   ),
@@ -164,7 +169,7 @@ Widget footerSection({
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: List.generate(
-                      4,
+                      socialMediaLinks.length,
                       (index) => Padding(
                         padding: const EdgeInsets.symmetric(
                             vertical: 10.0, horizontal: 10),
@@ -172,8 +177,8 @@ Widget footerSection({
                           onPressed: () {
                             // Handle button tap
                           },
-                          child: const Icon(
-                            Icons.add,
+                          child : Icon(
+                            socialMediaLinks[index].icon,
                           ), // Replace with your desired icon
                         ),
                       ),

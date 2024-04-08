@@ -4,7 +4,7 @@ import 'package:home_services/constants/colors.dart';
 import 'package:home_services/constants/text_strings.dart';
 
 class NavlinksSection extends StatefulWidget {
-  const NavlinksSection({Key? key});
+  const NavlinksSection({super.key});
 
   @override
   State<NavlinksSection> createState() => _NavlinksSectionState();
@@ -42,7 +42,7 @@ class _NavlinksSectionState extends State<NavlinksSection> {
             ),
             onPressed: () {
               setState(() {
-                context.go('${routes[index]}');
+                context.go(routes[index]);
                 selectedButtonIndex = index;
               });
             },

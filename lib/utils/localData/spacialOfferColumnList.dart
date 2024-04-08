@@ -5,13 +5,13 @@ List spacialOfferColumn = [
     mainAxisAlignment: MainAxisAlignment.spaceAround,
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      Text(
+      const Text(
         "Powersaver",
         style: TextStyle(
             color: Colors.white, fontSize: 30, fontWeight: FontWeight.w500),
       ),
-      SizedBox(height: 10),
-      Container(
+      const SizedBox(height: 10),
+      const SizedBox(
         width: 280,
         height: 70,
         child: Text(
@@ -23,8 +23,8 @@ List spacialOfferColumn = [
               height: 1.2),
         ),
       ),
-      SizedBox(height: 10),
-      Text(
+      const SizedBox(height: 10),
+      const Text(
         "AC Servicing",
         style: TextStyle(
             color: Colors.white,
@@ -32,10 +32,10 @@ List spacialOfferColumn = [
             fontWeight: FontWeight.w200,
             height: 1.2),
       ),
-      SizedBox(height: 5),
+      const SizedBox(height: 5),
       ElevatedButton(
         onPressed: () {},
-        child: Text("book now"),
+        child: const Text("book now"),
       )
     ],
   ),
@@ -45,12 +45,12 @@ List spacialOfferColumn = [
     mainAxisAlignment: MainAxisAlignment.spaceAround,
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      Text(
+      const Text(
         "Save 20 %",
         style: TextStyle(
             color: Colors.white, fontSize: 30, fontWeight: FontWeight.w500),
       ),
-      Container(
+      const SizedBox(
         width: 2800,
         height: 80,
         child: Text(
@@ -64,7 +64,7 @@ List spacialOfferColumn = [
       ),
       ElevatedButton(
         onPressed: () {},
-        child: Text("book now"),
+        child: const Text("book now"),
       )
     ],
   ),
@@ -74,12 +74,12 @@ List spacialOfferColumn = [
     mainAxisAlignment: MainAxisAlignment.spaceAround,
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      Text(
+      const Text(
         "spacial Offer",
         style: TextStyle(
             color: Colors.white, fontSize: 30, fontWeight: FontWeight.w500),
       ),
-      Container(
+      const SizedBox(
         width: 280,
         height: 80,
         child: Text(
@@ -93,7 +93,7 @@ List spacialOfferColumn = [
       ),
       ElevatedButton(
         onPressed: () {},
-        child: Text("book now"),
+        child: const Text("book now"),
       )
     ],
   ),
@@ -103,12 +103,12 @@ List spacialOfferColumn = [
     mainAxisAlignment: MainAxisAlignment.spaceAround,
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      Text(
+      const Text(
         "spacial Offer",
         style: TextStyle(
             color: Colors.white, fontSize: 30, fontWeight: FontWeight.w500),
       ),
-      Container(
+      const SizedBox(
         width: 280,
         height: 80,
         child: Text(
@@ -122,7 +122,7 @@ List spacialOfferColumn = [
       ),
       ElevatedButton(
         onPressed: () {},
-        child: Text("book now"),
+        child: const Text("book now"),
       )
     ],
   )

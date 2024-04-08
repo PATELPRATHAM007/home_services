@@ -18,10 +18,10 @@ class _CnavCartState extends State<CnavCart> {
         alignment: Alignment.topRight,
         children: <Widget>[
           IconButton(
-            icon: Icon(Icons.shopping_cart,size: 32,),
+            icon: const Icon(Icons.shopping_cart,size: 32,),
             onPressed: () =>  context.go('/cart'),
           ),
-          CartItemIndicator(itemCount: 3), // Change itemCount as per your requirement
+          const CartItemIndicator(itemCount: 3), // Change itemCount as per your requirement
         ],
       ),
     );

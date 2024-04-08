@@ -33,8 +33,8 @@ class _TNavigationBarState extends State<TNavigationBar> {
               logoHeight: TSizeValues.logoHeight,
               gap: TSizeValues.logoGap,
             ),
-            CNavSearchBar(),
-            Row(
+            const CNavSearchBar(),
+            const Row(
               children: [
                 NavlinksSection(),
                 CnavCart(),

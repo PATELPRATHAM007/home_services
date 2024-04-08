@@ -13,13 +13,13 @@ void openDialog(BuildContext context, String email, String phoneNumber, Function
           mainAxisSize: MainAxisSize.min,
           children: [
             TextField(
-              decoration: InputDecoration(labelText: 'Email'),
+              decoration: const InputDecoration(labelText: 'Email'),
               onChanged: (value) {
                 newEmail = value;
               },
             ),
             TextField(
-              decoration: InputDecoration(labelText: 'Phone Number'),
+              decoration: const InputDecoration(labelText: 'Phone Number'),
               onChanged: (value) {
                 newPhoneNumber = value;
               },
@@ -31,14 +31,14 @@ void openDialog(BuildContext context, String email, String phoneNumber, Function
             onPressed: () {
               Navigator.of(context).pop();
             },
-            child: Text('Cancel'),
+            child: const Text('Cancel'),
           ),
           TextButton(
             onPressed: () {
               onSave(newEmail, newPhoneNumber);
               Navigator.of(context).pop();
             },
-            child: Text('Save'),
+            child: const Text('Save'),
           ),
         ],
       );

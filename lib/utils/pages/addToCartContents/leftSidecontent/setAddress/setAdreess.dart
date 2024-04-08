@@ -33,13 +33,13 @@ class _SetAddressState extends State<SetAddress> {
                 ),
               ),
             ),
-            SizedBox(
-              width: 20,
+            const SizedBox(
+              width: 20
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                const Text(
                   "Address",
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
                 ),
@@ -47,7 +47,7 @@ class _SetAddressState extends State<SetAddress> {
                   width: 300,
                   child: Text(
                     address,
-                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500,height: 1.2),
+                    style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500,height: 1.2),
                   ),
                 ),
               ],
@@ -58,7 +58,7 @@ class _SetAddressState extends State<SetAddress> {
           onPressed: () {
             _openDialog();
           },
-          child: Text("Edit"),
+          child: const Text("Edit"),
         )
       ],
     );
@@ -71,14 +71,14 @@ class _SetAddressState extends State<SetAddress> {
         String newAddress = address; // Initialize newAddress with the current address
 
         return AlertDialog(
-          title: Text('Change Address'),
+          title: const Text('Change Address'),
           content: SizedBox(
             width: 300,
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 TextField(
-                  decoration: InputDecoration(labelText: 'Address'),
+                  decoration: const InputDecoration(labelText: 'Address'),
                   onChanged: (value) {
                     newAddress = value; // Update newAddress when the text changes
                   },
@@ -91,7 +91,7 @@ class _SetAddressState extends State<SetAddress> {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text('Cancel'),
+              child: const Text('Cancel'),
             ),
             TextButton(
               onPressed: () {
@@ -100,7 +100,7 @@ class _SetAddressState extends State<SetAddress> {
                 });
                 Navigator.of(context).pop(); // Close the dialog
               },
-              child: Text('Save'),
+              child: const Text('Save'),
             ),
           ],
         );

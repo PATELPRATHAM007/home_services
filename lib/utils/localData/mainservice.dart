@@ -56,7 +56,7 @@ final mainServiveData = [
   ),
   // element 5
   TMainServiceCardView(
-    image: "assets/images/assets/images/appliance repair 2.jpg",
+    image: "assets/images/acsrviceandrepair.jpg",
     dartContainer: Container(
       width: double.infinity,
       height: double.infinity,

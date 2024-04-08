@@ -29,7 +29,7 @@ class _DetailSectionContainerState extends State<DetailSectionContainer> {
         return StatefulBuilder(
           builder: (BuildContext context, StateSetter setState) {
             return AlertDialog(
-              title: Text('Dialog Title'),
+              title: const Text('Dialog Title'),
               content: Container(
                 width: 400,
                 height: 200,
@@ -49,11 +49,11 @@ class _DetailSectionContainerState extends State<DetailSectionContainer> {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 5,
                     ),
-                    Divider(
-                      thickness: 2,
+                    const Divider(
+                      thickness: 2
                     ),
                     Row(
                       children: <Widget>[
@@ -67,13 +67,13 @@ class _DetailSectionContainerState extends State<DetailSectionContainer> {
                             });
                           },
                         ),
-                        Text('Home'),
+                        const Text('Home'),
                       ],
                     ),
-                    SizedBox(
-                      height: 5,
+                    const SizedBox(
+                      height: 5
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 300,
                       child: Text(
                         "data",
@@ -88,7 +88,7 @@ class _DetailSectionContainerState extends State<DetailSectionContainer> {
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
-                  child: Text('Close'),
+                  child: const Text('Close'),
                 ),
               ],
             );
@@ -103,14 +103,14 @@ class _DetailSectionContainerState extends State<DetailSectionContainer> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Set Date and Time Slot'),
-          content: Container(
+          title: const Text('Set Date and Time Slot'),
+          content: SizedBox(
             width: double.maxFinite,
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text('Select Date', style: TextStyle(fontSize: 18)),
-                SizedBox(height: 10),
+                const Text('Select Date', style: TextStyle(fontSize: 18)),
+                const SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: List.generate(
@@ -150,9 +150,9 @@ class _DetailSectionContainerState extends State<DetailSectionContainer> {
                     ),
                   ),
                 ),
-                SizedBox(height: 20),
-                Text('Select Time', style: TextStyle(fontSize: 18)),
-                SizedBox(height: 10),
+                const SizedBox(height: 20),
+                const Text('Select Time', style: TextStyle(fontSize: 18)),
+                const SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: List.generate(
@@ -161,8 +161,7 @@ class _DetailSectionContainerState extends State<DetailSectionContainer> {
                       onTap: () {
                         setState(() {
                           selectedTimeIndex = index;
-                          selectedTime = (8 + index).toString() +
-                              ':00 AM'; // Example for selecting time
+                          selectedTime = '${8 + index}:00 AM'; // Example for selecting time
                         });
                       },
                       child: Container(
@@ -180,8 +179,7 @@ class _DetailSectionContainerState extends State<DetailSectionContainer> {
                         ),
                         child: Center(
                           child: Text(
-                            (8 + index).toString() +
-                                ':00 AM', // Example for selecting time
+                            '${8 + index}:00 AM', // Example for selecting time
                             style: TextStyle(
                                 color: selectedTimeIndex == index
                                     ? Colors.white
@@ -192,8 +190,8 @@ class _DetailSectionContainerState extends State<DetailSectionContainer> {
                     ),
                   ),
                 ),
-                SizedBox(height: 20),
-                Container(
+                const SizedBox(height: 20),
+                SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {
@@ -206,7 +204,7 @@ class _DetailSectionContainerState extends State<DetailSectionContainer> {
                         borderRadius: BorderRadius.circular(10),
                       ),
                     ),
-                    child: Text(
+                    child: const Text(
                       'Confirm',
                       style: TextStyle(fontSize: 16),
                     ),
@@ -220,29 +218,14 @@ class _DetailSectionContainerState extends State<DetailSectionContainer> {
     );
   }
 
-  Widget _buildDateContainer(DateTime date) {
-    return Container(
-      width: 50,
-      height: 50,
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-        color: Colors.grey[200],
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Text(
-        '${date.day}',
-        style: TextStyle(fontSize: 18),
-      ),
-    );
-  }
 
   Widget _buildTimeRow(String time) {
     return Row(
       children: [
         _buildTimeContainer(time),
-        SizedBox(width: 10),
+        const SizedBox(width: 10),
         _buildTimeContainer(time),
-        SizedBox(width: 10),
+        const SizedBox(width: 10),
         _buildTimeContainer(time),
       ],
     );
@@ -250,7 +233,7 @@ class _DetailSectionContainerState extends State<DetailSectionContainer> {
 
   Widget _buildTimeContainer(String time) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       decoration: BoxDecoration(
         color: Colors.grey[200],
         borderRadius: BorderRadius.circular(10),
@@ -270,16 +253,16 @@ class _DetailSectionContainerState extends State<DetailSectionContainer> {
           borderRadius: BorderRadius.circular(20),
         ),
         child: Padding(
-          padding: EdgeInsets.all(15),
+          padding: const EdgeInsets.all(15),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SetEmailAndPhoneNo(),
-              Divider(),
+              const Divider(),
               SetAddress(),
-              Divider(),
+              const Divider(),
               SetDateAndTime(),
-              Divider(),
+              const Divider(),
               SetPaymentDetails(),
             ],
           ),

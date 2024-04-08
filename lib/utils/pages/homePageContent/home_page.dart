@@ -3,10 +3,11 @@ import 'package:home_services/commonFIles/footerComponents/footer.dart';
 import 'package:home_services/constants/colors.dart';
 import 'package:home_services/commonFIles/navComponents/navigationBar.dart';
 import 'package:home_services/utils/pages/homePageContent/01_greetingSection.dart';
-import 'package:home_services/utils/pages/homePageContent/02_services.dart';
 import 'package:home_services/utils/pages/homePageContent/03_why_choose_us.dart';
 import 'package:home_services/utils/pages/homePageContent/04_booking_process.dart';
 import 'package:home_services/utils/pages/homePageContent/cardViews/mainServicesCardBuilder.dart';
+import 'package:home_services/utils/pages/homePageContent/cardViews/mostlyBookingServiceCardBuilder.dart';
+import 'package:home_services/utils/pages/homePageContent/cardViews/newWorthfulServiceCardBuilder.dart';
 import 'package:home_services/utils/pages/homePageContent/cardViews/spacialOffferCardbuilder.dart';
 
 class THomePage extends StatefulWidget {
@@ -40,10 +41,10 @@ class _THomePageState extends State<THomePage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // greetingSection(
-            //   screenSizeheight: screenSize.height,
-            //   screenSizewidth: screenSize.width,
-            // ),
+            greetingSection(
+              screenSizeheight: screenSize.height,
+              screenSizewidth: screenSize.width,
+            ),
             const SizedBox(height: 60),
             servicesAndBookingSection(
                 screenSize,
@@ -56,7 +57,7 @@ class _THomePageState extends State<THomePage> {
                 pageController3,
                 currentPageIndex3),
 
-            // section 6 why you choose us
+            // // section 6 why you choose us
             const SizedBox(height: 120),
             chooseUs(screenSizeheight: screenSize.height, screenSizewidth: screenSize.width),
 
@@ -100,6 +101,7 @@ class _THomePageState extends State<THomePage> {
           // section 4
           const SizedBox(height: 40),
 
+
           Text("New and noteworthy",
               style: TextStyle(
                   color: TColors.blue,
@@ -108,7 +110,7 @@ class _THomePageState extends State<THomePage> {
                   letterSpacing: 1.2)),
           const SizedBox(height: 20),
 
-          ServicesSection().newWorthfulService(
+          TNewWorthfulServicecardView().newWorthfulService(
               pageController: pageController2,
               currentPageIndex: currentPageIndex2),
 
@@ -122,7 +124,7 @@ class _THomePageState extends State<THomePage> {
                   letterSpacing: 1.2)),
           const SizedBox(height: 20),
 
-          ServicesSection().mostlyBookingService(
+          TMostlyBookingServiceData().mostlyBookingService(
               pageController: pageController3,
               currentPageIndex: currentPageIndex3),
           //section 6 why you choose us

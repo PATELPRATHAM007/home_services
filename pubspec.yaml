@@ -108,7 +108,22 @@ flutter:
     - assets/images/electrician.jpg
     - assets/images/painter.webp
     - assets/images/Plumbing.jpg
-    - assets/images/appliance repair 2.jpg
+    - assets/images/appliancerepair2.jpg
+
+    - assets/images/painting.jpg
+    - assets/images/bathroomcleaning2.jpg
+    - assets/images/acsrviceandrepair.jpg
+    - assets/images/kitchenCleaning.jpg
+    - assets/images/sofacleaning2.jpg
+    - assets/images/carpet1.jpg
+
+    - assets/images/CeaningServiceWoman.jpg
+    - assets/images/kitchenCleaningwoman.jpg
+    - assets/images/bathroomCleaningMan.jpg
+    - assets/images/sofacleaning.jpeg
+    - assets/images/acrepairingman.PNG
+    - assets/images/geyserRepairingman.PNG
+    - assets/images/washingMachineRepairingman.PNG
 
     - assets/videos/cleaning.mp4
   # An image asset can refer to one or more resolution-specific "variants", see

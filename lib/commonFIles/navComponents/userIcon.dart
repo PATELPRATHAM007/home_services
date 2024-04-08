@@ -18,11 +18,11 @@ class _CUserIconState extends State<CUserIcon> {
       child: Container(
         width: 50,
         height: 50,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           shape: BoxShape.circle,
           color: Colors.blue,
         ),
-        child: Icon(
+        child: const Icon(
           Icons.person,
           color: Colors.white,
         ),

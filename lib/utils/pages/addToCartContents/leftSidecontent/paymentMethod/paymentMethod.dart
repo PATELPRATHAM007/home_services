@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class SetPaymentDetails extends StatefulWidget {
-  SetPaymentDetails({Key? key}) : super(key: key);
+  const SetPaymentDetails({Key? key}) : super(key: key);
 
   @override
   State<SetPaymentDetails> createState() => _SetPaymentDetailsState();
@@ -35,27 +35,27 @@ class _SetPaymentDetailsState extends State<SetPaymentDetails> {
                 ),
               ),
             ),
-            SizedBox(
-              width: 20,
+            const SizedBox(
+              width: 20
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                const Text(
                   "Payment Method",
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
                 ),
                 Text(
                   paymentMethod,
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                  style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
                 ),
                 Text(
                   cardNumber,
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                  style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
                 ),
                 Text(
                   expiryDate,
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                  style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
                 ),
               ],
             ),
@@ -65,7 +65,7 @@ class _SetPaymentDetailsState extends State<SetPaymentDetails> {
           onPressed: () {
             _openPaymentDialog();
           },
-          child: Text("Edit"),
+          child: const Text("Edit"),
         )
       ],
     );
@@ -76,12 +76,12 @@ class _SetPaymentDetailsState extends State<SetPaymentDetails> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Change Payment Details'),
+          title: const Text('Change Payment Details'),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               TextField(
-                decoration: InputDecoration(labelText: 'Payment Method'),
+                decoration: const InputDecoration(labelText: 'Payment Method'),
                 onChanged: (value) {
                   setState(() {
                     paymentMethod = value;
@@ -89,7 +89,7 @@ class _SetPaymentDetailsState extends State<SetPaymentDetails> {
                 },
               ),
               TextField(
-                decoration: InputDecoration(labelText: 'Card Number'),
+                decoration: const InputDecoration(labelText: 'Card Number'),
                 onChanged: (value) {
                   setState(() {
                     cardNumber = value;
@@ -97,7 +97,7 @@ class _SetPaymentDetailsState extends State<SetPaymentDetails> {
                 },
               ),
               TextField(
-                decoration: InputDecoration(labelText: 'Expiry Date'),
+                decoration: const InputDecoration(labelText: 'Expiry Date'),
                 onChanged: (value) {
                   setState(() {
                     expiryDate = value;

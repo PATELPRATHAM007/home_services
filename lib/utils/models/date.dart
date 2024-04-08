@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -12,17 +14,19 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(),
+      home: const MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatelessWidget {
+  const MyHomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Dialog Box Example'),
+        title: const Text('Dialog Box Example'),
       ),
       body: Center(
         child: ElevatedButton(
@@ -31,42 +35,40 @@ class MyHomePage extends StatelessWidget {
               context: context,
               builder: (BuildContext context) {
                 return AlertDialog(
-                  title: Text('Dialog Title'),
-                  content: Container(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        TextField(
-                          decoration: InputDecoration(
-                            labelText: 'Field 1',
-                          ),
+                  title: const Text('Dialog Title'),
+                  content: const Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      TextField(
+                        decoration: InputDecoration(
+                          labelText: 'Field 1',
                         ),
-                        TextField(
-                          decoration: InputDecoration(
-                            labelText: 'Field 2',
-                          ),
+                      ),
+                      TextField(
+                        decoration: InputDecoration(
+                          labelText: 'Field 2',
                         ),
-                        TextField(
-                          decoration: InputDecoration(
-                            labelText: 'Field 3',
-                          ),
+                      ),
+                      TextField(
+                        decoration: InputDecoration(
+                          labelText: 'Field 3',
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                   actions: <Widget>[
                     TextButton(
                       onPressed: () {
                         Navigator.of(context).pop();
                       },
-                      child: Text('Close'),
+                      child: const Text('Close'),
                     ),
                   ],
                 );
               },
             );
           },
-          child: Text('Show Dialog'),
+          child: const Text('Show Dialog'),
         ),
       ),
     );

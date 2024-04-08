@@ -58,7 +58,7 @@ class TPagerouting {
      GoRoute(
       path: '/regForm',
       builder: (BuildContext context, GoRouterState state) {
-        return  TRegistrationFrom();
+        return  const TRegistrationFrom();
       },
      ),
   ],
