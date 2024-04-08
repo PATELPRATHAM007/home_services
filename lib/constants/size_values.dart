@@ -66,4 +66,7 @@ class TSizeValues {
   static const double extraLargePromaxFont = 48;
   static const double extraLargeProMaxUltraFont = 60;
   static const double superFont = 120;
+
+  
+  static const bool loginOrNot = false;
 } 

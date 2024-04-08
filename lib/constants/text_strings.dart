@@ -12,9 +12,9 @@ class TTextStrings {
 
   //greeting section
   static String exploreService = "CONTACT US";
-  static String qualityInfo = "CONTACT US";
-  static String weProvieding = "CONTACT US";
-  static String qualityWork = "CONTACT US";
+  static String qualityInfo = "Quality work, simplified solutions, joyful results. That's the Home Service Standard. We treat your home like our own, and our expert touch is guaranteed to leave you smiling. Let us transform your to-do list into a done-and-done dream.";
+  static String weProvieding = "We providing";
+  static String qualityWork = "Quality work";
 
   // login page
   static String signUp = 'Sign Up';

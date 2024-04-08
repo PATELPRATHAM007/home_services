@@ -61,6 +61,8 @@ dependencies:
   image_picker: ^1.0.7
   get: ^4.6.6
   intl: ^0.17.0
+  video_player: ^2.2.15
+  chewie: ^1.1.2
 
   
 dev_dependencies:
@@ -100,6 +102,15 @@ flutter:
     - assets/images/facebook.png
     - assets/images/search.png
     - assets/images/twitter.png
+    - assets/images/Cart.jpeg
+    - assets/images/cart1.png
+    - assets/images/cleaning.jpeg
+    - assets/images/electrician.jpg
+    - assets/images/painter.webp
+    - assets/images/Plumbing.jpg
+    - assets/images/appliance repair 2.jpg
+
+    - assets/videos/cleaning.mp4
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

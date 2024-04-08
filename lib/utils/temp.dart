@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:video_player/video_player.dart';
 
 void main() {
   runApp(MyApp());
@@ -8,89 +9,70 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Change Contact Info'),
-        ),
-        body: ChangeContactInfo(),
-      ),
+      title: 'Video Player Example',
+      home: MyHomePage(),
     );
   }
 }
 
-class ChangeContactInfo extends StatefulWidget {
+class MyHomePage extends StatefulWidget {
   @override
-  _ChangeContactInfoState createState() => _ChangeContactInfoState();
+  _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _ChangeContactInfoState extends State<ChangeContactInfo> {
-  String email = 'example@example.com';
-  String phoneNumber = '123-456-7890';
+class _MyHomePageState extends State<MyHomePage> {
+  late VideoPlayerController _controller;
 
-  void _openDialog() {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('Change Contact Info'),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              TextField(
-                decoration: InputDecoration(labelText: 'Email'),
-                onChanged: (value) {
-                  setState(() {
-                    email = value;
-                  });
-                },
-              ),
-              TextField(
-                decoration: InputDecoration(labelText: 'Phone Number'),
-                onChanged: (value) {
-                  setState(() {
-                    phoneNumber = value;
-                  });
-                },
-              ),
-            ],
-          ),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Text('Cancel'),
-            ),
-            TextButton(
-              onPressed: () {
-                // Save changes
-                Navigator.of(context).pop();
-              },
-              child: Text('Save'),
-            ),
-          ],
-        );
-      },
-    );
+  @override
+  void initState() {
+    super.initState();
+    _initializeVideoPlayer();
+  }
+
+  void _initializeVideoPlayer() async {
+    _controller = VideoPlayerController.asset('assets/video.mp4');
+    try {
+      await _controller.initialize();
+      setState(() {}); // Trigger a rebuild after initialization
+    } catch (error) {
+      print('Error initializing video player: $error');
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Text('Email: $email'),
-            Text('Phone: $phoneNumber'),
-          ],
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Video Player Example'),
+      ),
+      body: Center(
+        child: _controller.value.isInitialized
+            ? AspectRatio(
+                aspectRatio: _controller.value.aspectRatio,
+                child: VideoPlayer(_controller),
+              )
+            : CircularProgressIndicator(),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            if (_controller.value.isPlaying) {
+              _controller.pause();
+            } else {
+              _controller.play();
+            }
+          });
+        },
+        child: Icon(
+          _controller.value.isPlaying ? Icons.pause : Icons.play_arrow,
         ),
-        SizedBox(height: 20),
-        ElevatedButton(
-          onPressed: _openDialog,
-          child: Text('Change Contact Info'),
-        ),
-      ],
+      ),
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
   }
 }

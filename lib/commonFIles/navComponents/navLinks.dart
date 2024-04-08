@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:home_services/constants/colors.dart';
 import 'package:home_services/constants/text_strings.dart';
 
@@ -13,20 +14,26 @@ class _NavlinksSectionState extends State<NavlinksSection> {
   final List<String> navbarString = [
     TTextStrings.home,
     TTextStrings.services,
-    TTextStrings.offers,
+    // TTextStrings.offers,
     TTextStrings.aboutUs,
-    TTextStrings.contactUS,
+    // TTextStrings.contactUS,
   ];
 
   int selectedButtonIndex = 0; // Initialize with the desired default index
-
+  final List<String> routes = [
+    '/',
+    '/service',
+    '/aboutus',
+  ];
   @override
+
   Widget build(BuildContext context) {
+  
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: List.generate(navbarString.length, (index) {
         return Padding(
-          padding: const EdgeInsets.only(left: 55, right: 55),
+          padding: const EdgeInsets.only(left: 20, right: 20),
           child: TextButton(
             style: TextButton.styleFrom(
               backgroundColor: index == selectedButtonIndex
@@ -35,6 +42,7 @@ class _NavlinksSectionState extends State<NavlinksSection> {
             ),
             onPressed: () {
               setState(() {
+                context.go('${routes[index]}');
                 selectedButtonIndex = index;
               });
             },

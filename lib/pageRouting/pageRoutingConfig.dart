@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import 'package:go_router/go_router.dart';
-import 'package:home_services/utils/pages/addToCart/addToCart.dart';
+import 'package:home_services/utils/pages/aboutUsContents/aboutUsPage.dart';
+import 'package:home_services/utils/pages/addToCartContents/addToCart.dart';
 import 'package:home_services/utils/pages/homePageContent/home_page.dart';
 import 'package:home_services/utils/pages/loginPageContent/login_Page.dart';
 import 'package:home_services/utils/pages/servicesContent/DynamicServicePage.dart';
@@ -34,6 +35,12 @@ class TPagerouting {
       path: '/cart',
       builder: (BuildContext context, GoRouterState state) {
         return const TAddToCart();
+      },
+     ),
+      GoRoute(
+      path: '/aboutus',
+      builder: (BuildContext context, GoRouterState state) {
+        return const TAboutUsPage();
       },
      ),
       GoRoute(

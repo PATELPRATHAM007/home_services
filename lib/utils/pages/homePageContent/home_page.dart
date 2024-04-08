@@ -6,6 +6,8 @@ import 'package:home_services/utils/pages/homePageContent/01_greetingSection.dar
 import 'package:home_services/utils/pages/homePageContent/02_services.dart';
 import 'package:home_services/utils/pages/homePageContent/03_why_choose_us.dart';
 import 'package:home_services/utils/pages/homePageContent/04_booking_process.dart';
+import 'package:home_services/utils/pages/homePageContent/cardViews/mainServicesCardBuilder.dart';
+import 'package:home_services/utils/pages/homePageContent/cardViews/spacialOffferCardbuilder.dart';
 
 class THomePage extends StatefulWidget {
   const THomePage({super.key});
@@ -19,7 +21,7 @@ class _THomePageState extends State<THomePage> {
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
     PageController pageController =
-        PageController(initialPage: 0, viewportFraction: .23);
+        PageController(initialPage: 0, viewportFraction: .25);
     PageController pageController1 =
         PageController(initialPage: 0, viewportFraction: .308);
     PageController pageController2 =
@@ -38,10 +40,10 @@ class _THomePageState extends State<THomePage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            greetingSection(
-              screenSizeheight: screenSize.height,
-              screenSizewidth: screenSize.width,
-            ),
+            // greetingSection(
+            //   screenSizeheight: screenSize.height,
+            //   screenSizewidth: screenSize.width,
+            // ),
             const SizedBox(height: 60),
             servicesAndBookingSection(
                 screenSize,
@@ -84,7 +86,7 @@ class _THomePageState extends State<THomePage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          ServicesSection().serviceType(
+          TMainServicesCardBuilder().serviceType(
               screenSizeheight: screenSize.height,
               screenSizewidth: screenSize.width,
               pageController: pageController,
@@ -92,7 +94,7 @@ class _THomePageState extends State<THomePage> {
 
           const SizedBox(height: 20),
 
-          ServicesSection().spacialOffer(
+          TSpacialOfferCardView().spacialOffer(
               pageController: pageController1,
               currentPageIndex: currentPageIndex1),
           // section 4

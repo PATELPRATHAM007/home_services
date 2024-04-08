@@ -1,7 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:home_services/commonFIles/logoComponents/logo.dart';
 import 'package:home_services/commonFIles/navComponents/navLinks.dart';
+import 'package:home_services/commonFIles/navComponents/navSeachbar.dart';
+import 'package:home_services/commonFIles/navComponents/navcart.dart';
 import 'package:home_services/commonFIles/navComponents/navloginButton.dart';
+import 'package:home_services/commonFIles/navComponents/userIcon.dart';
 import 'package:home_services/constants/colors.dart';
 import 'package:home_services/constants/size_values.dart';
 
@@ -20,7 +24,7 @@ class _TNavigationBarState extends State<TNavigationBar> {
     return Container(
       color: TColors.white,
       child: Padding(
-       padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -29,8 +33,16 @@ class _TNavigationBarState extends State<TNavigationBar> {
               logoHeight: TSizeValues.logoHeight,
               gap: TSizeValues.logoGap,
             ),
-            NavlinksSection(),
-            NavLoginButton(),
+            CNavSearchBar(),
+            Row(
+              children: [
+                NavlinksSection(),
+                CnavCart(),
+              TSizeValues.loginOrNot == true ? CUserIcon() : NavLoginButton() 
+
+                // NavLoginButton(),
+              ],
+            )
           ],
         ),
       ),
