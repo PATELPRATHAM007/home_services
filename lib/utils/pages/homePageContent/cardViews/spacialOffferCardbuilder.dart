@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:home_services/constants/colors.dart';
-import 'package:home_services/utils/localData/mainService.dart';
-import 'package:home_services/utils/localData/spacialOfferColumnList.dart';
+import 'package:home_services/utils/localData/homePage/mainService.dart';
+import 'package:home_services/utils/localData/homePage/spacialOfferColumnList.dart';
 
 class TSpacialOfferCardView {
   Widget spacialOffer(

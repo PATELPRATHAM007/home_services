@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:home_services/utils/localData/mostlyBookingService.dart';
+import 'package:go_router/go_router.dart';
+import 'package:home_services/utils/localData/homePage/mostlyBookingService.dart';
 
 class TMostlyBookingServiceData {
   Widget mostlyBookingService(
@@ -65,7 +66,7 @@ class TMostlyBookingServiceData {
       padding: const EdgeInsets.symmetric(horizontal: 5),
       child: InkWell(
         onTap: () {
-          // Handle tap event here, e.g., navigate to a detail screen
+          context.go("/service");
           print('Tapped on ${mostlyBookingServicesDate[index].service}');
         },
         child: Column(

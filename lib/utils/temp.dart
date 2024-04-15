@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:video_player/video_player.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_database/firebase_database.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -9,7 +12,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Video Player Example',
+      title: 'Flutter Firebase Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
       home: MyHomePage(),
     );
   }
@@ -21,21 +27,19 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  late VideoPlayerController _controller;
+  final TextEditingController _textController = TextEditingController();
+  final DatabaseReference _database =
+      FirebaseDatabase.instance.reference().child('data');
 
-  @override
-  void initState() {
-    super.initState();
-    _initializeVideoPlayer();
-  }
-
-  void _initializeVideoPlayer() async {
-    _controller = VideoPlayerController.asset('assets/video.mp4');
-    try {
-      await _controller.initialize();
-      setState(() {}); // Trigger a rebuild after initialization
-    } catch (error) {
-      print('Error initializing video player: $error');
+  void _addData() {
+    String data = _textController.text.trim();
+    if (data.isNotEmpty) {
+      _database.push().set({'value': data}).then((_) {
+        print('Data added successfully!');
+        _textController.clear();
+      }).catchError((error) {
+        print('Failed to add data: $error');
+      });
     }
   }
 
@@ -43,28 +47,25 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Video Player Example'),
+        title: Text('Flutter Firebase Demo'),
       ),
-      body: Center(
-        child: _controller.value.isInitialized
-            ? AspectRatio(
-                aspectRatio: _controller.value.aspectRatio,
-                child: VideoPlayer(_controller),
-              )
-            : CircularProgressIndicator(),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          setState(() {
-            if (_controller.value.isPlaying) {
-              _controller.pause();
-            } else {
-              _controller.play();
-            }
-          });
-        },
-        child: Icon(
-          _controller.value.isPlaying ? Icons.pause : Icons.play_arrow,
+      body: Padding(
+        padding: EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            TextField(
+              controller: _textController,
+              decoration: InputDecoration(
+                labelText: 'Enter data',
+              ),
+            ),
+            SizedBox(height: 16.0),
+            ElevatedButton(
+              onPressed: _addData,
+              child: Text('Add Data'),
+            ),
+          ],
         ),
       ),
     );
@@ -72,7 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   void dispose() {
+    _textController.dispose();
     super.dispose();
-    _controller.dispose();
   }
 }

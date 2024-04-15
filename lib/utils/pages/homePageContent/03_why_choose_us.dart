@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:home_services/constants/colors.dart';
+import 'package:home_services/utils/localData/featureSection/featureData.dart';
 
 Widget chooseUs({required double screenSizeheight,
   required double screenSizewidth,}) {
@@ -52,7 +53,7 @@ Widget chooseUs({required double screenSizeheight,
                   width: 700,
                   child: Text(
                     "We understand that in today’s busy world it’s very difficult to manage time for ourselves even, let alone time for fixing things at home. For every person there is always something that needs attention back home be it small issues like repairing home appliances or time consuming ones like getting the décor done.",
-                    style: TextStyle(fontSize: 18, color: Colors.white),
+                    style: TextStyle(fontSize: 18, color: Colors.white,),
                     textAlign: TextAlign.justify,
                   )),
             ],
@@ -86,6 +87,7 @@ Widget chooseUs({required double screenSizeheight,
                             height: 50.0,
                             decoration: BoxDecoration(
                                 shape: BoxShape.circle, color: Colors.pink),
+                                child: Center(child: Text("${index + 1}",style: TextStyle(fontSize: 22,color: Colors.white),)),
                           ),
                           SizedBox(
                               width:
@@ -98,14 +100,15 @@ Widget chooseUs({required double screenSizeheight,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'First Text',
+                                  featuresList[index].title,
                                   style: TextStyle(
                                       fontSize: 18.0,
                                       fontWeight: FontWeight.bold),
                                 ),
                                 Text(
-                                  'Second Text',
-                                  style: TextStyle(fontSize: 16.0),
+                                  featuresList[index].paragraph,
+                                  style: TextStyle(fontSize: 16.0,height: 1.1),
+                                  textAlign: TextAlign.justify,
                                 ),
                               ],
                             ),

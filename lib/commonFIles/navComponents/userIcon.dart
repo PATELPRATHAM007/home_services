@@ -1,31 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:home_services/constants/size_values.dart';
 
-class CUserIcon extends StatefulWidget {
-  const CUserIcon({super.key});
+class CUserIcon extends StatelessWidget {
+  const CUserIcon({Key? key}) : super(key: key);
 
-  @override
-  State<CUserIcon> createState() => _CUserIconState();
-}
-
-class _CUserIconState extends State<CUserIcon> {
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        // Add your desired action when the user icon is clicked
-        print('User icon clicked');
-      },
-      child: Container(
-        width: 50,
-        height: 50,
-        decoration: const BoxDecoration(
-          shape: BoxShape.circle,
-          color: Colors.blue,
-        ),
-        child: const Icon(
+    return CircleAvatar(
+      backgroundColor: Colors.blue,
+      radius: 25, // Adjust the size as needed
+      child: IconButton(
+        onPressed: () {
+          selectedButtonIndex = null;
+          context.go('/profile');
+        },
+        icon: Icon(
           Icons.person,
           color: Colors.white,
         ),
+        iconSize: 30, // Adjust the size of the icon as needed
       ),
     );
   }

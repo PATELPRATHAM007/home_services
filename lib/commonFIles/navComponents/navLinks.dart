@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:home_services/constants/colors.dart';
+import 'package:home_services/constants/size_values.dart';
 import 'package:home_services/constants/text_strings.dart';
 
 class NavlinksSection extends StatefulWidget {
-  const NavlinksSection({super.key});
+  const NavlinksSection({Key? key}) : super(key: key);
 
   @override
   State<NavlinksSection> createState() => _NavlinksSectionState();
@@ -14,21 +15,22 @@ class _NavlinksSectionState extends State<NavlinksSection> {
   final List<String> navbarString = [
     TTextStrings.home,
     TTextStrings.services,
-    // TTextStrings.offers,
     TTextStrings.aboutUs,
-    // TTextStrings.contactUS,
+    "CART"
   ];
 
-  int selectedButtonIndex = 0; // Initialize with the desired default index
   final List<String> routes = [
     '/',
     '/service',
     '/aboutus',
-  ];
-  @override
-
-  Widget build(BuildContext context) {
+    '/cart',
   
+  ];
+
+  // int selectedButtonIndex = 0; // Initialize with the desired default index
+
+  @override
+  Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: List.generate(navbarString.length, (index) {
@@ -42,8 +44,8 @@ class _NavlinksSectionState extends State<NavlinksSection> {
             ),
             onPressed: () {
               setState(() {
+                selectedButtonIndex = index; // Update selectedButtonIndex here
                 context.go(routes[index]);
-                selectedButtonIndex = index;
               });
             },
             child: Text(

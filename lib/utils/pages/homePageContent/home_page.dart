@@ -41,21 +41,21 @@ class _THomePageState extends State<THomePage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            greetingSection(
-              screenSizeheight: screenSize.height,
-              screenSizewidth: screenSize.width,
-            ),
-            const SizedBox(height: 60),
-            servicesAndBookingSection(
-                screenSize,
-                pageController,
-                currentPageIndex,
-                pageController1,
-                currentPageIndex1,
-                pageController2,
-                currentPageIndex2,
-                pageController3,
-                currentPageIndex3),
+              greetingSection(
+                screenSizeheight: screenSize.height,
+                screenSizewidth: screenSize.width,
+              ),
+              const SizedBox(height: 60),
+              servicesAndBookingSection(
+                  screenSize,
+                  pageController,
+                  currentPageIndex,
+                  pageController1,
+                  currentPageIndex1,
+                  pageController2,
+                  currentPageIndex2,
+                  pageController3,
+                  currentPageIndex3),
 
             // // section 6 why you choose us
             const SizedBox(height: 120),

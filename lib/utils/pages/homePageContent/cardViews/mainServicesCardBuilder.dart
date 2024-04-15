@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:home_services/constants/colors.dart';
-import 'package:home_services/utils/localData/mainService.dart';
+import 'package:home_services/utils/localData/homePage/mainService.dart';
 
 class TMainServicesCardBuilder {
   Widget serviceType(

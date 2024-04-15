@@ -31,7 +31,7 @@ class _TServicePageState extends State<TServicePage> {
 
   Padding bodyContents() {
     return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+      padding: EdgeInsets.symmetric(horizontal: 170, vertical: 20),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -46,7 +46,7 @@ class _TServicePageState extends State<TServicePage> {
           //vertical Divieder
           VerticalDivider(thickness: 1.3),
           //add to cart
-          BoxOfaddToCart(),
+          // BoxOfaddToCart(),
         ],
       ),
     );

@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -24,6 +25,8 @@ class TSignUpRightSideContainer extends StatefulWidget {
 
 class _TSignUpRightSideContainerState extends State<TSignUpRightSideContainer> {
 
+  bool loading = false;
+  // final databaseRef = FirebaseDatabase.instance.ref("StoreData");
   final FirebaseAuthService _auth = FirebaseAuthService();
   TextEditingController signUpEmailController = TextEditingController();
   TextEditingController signUpPasswordController = TextEditingController();
@@ -245,6 +248,9 @@ class _TSignUpRightSideContainerState extends State<TSignUpRightSideContainer> {
               }
             }
             setState(() {});
+            // databaseRef.child("pratham").set({
+            //   "title": "name",
+            //   "id" : 1});
              _signup();
              // Refresh UI to show error messages
           },

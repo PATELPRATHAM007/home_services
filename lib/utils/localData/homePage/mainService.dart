@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:home_services/utils/models/mainServiceModel.dart';
+import 'package:home_services/utils/models/homepage/mainServiceModel.dart';
 
 final mainServiveData = [
   // element 1

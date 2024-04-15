@@ -10,17 +10,17 @@ class CartItemIndicator extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(5),
       decoration: const BoxDecoration(
-        color: Colors.red,
+        // color: Colors.red,
         shape: BoxShape.circle,
         
       ),
-      child: Text(
-        itemCount.toString(),
-        style: const TextStyle(
-          color: Colors.white,
-          fontSize: 12,
-        ),
-      ),
+      // child: Text(
+      //   itemCount.toString(),
+      //   style: const TextStyle(
+      //     color: Colors.white,
+      //     fontSize: 12,
+      //   ),
+      // ),
     );
   }
 }

@@ -4,6 +4,7 @@ import 'package:home_services/utils/pages/aboutUsContents/aboutUsPage.dart';
 import 'package:home_services/utils/pages/addToCartContents/addToCart.dart';
 import 'package:home_services/utils/pages/homePageContent/home_page.dart';
 import 'package:home_services/utils/pages/loginPageContent/login_Page.dart';
+import 'package:home_services/utils/pages/profileContents/profile.dart';
 import 'package:home_services/utils/pages/servicesContent/DynamicServicePage.dart';
 import 'package:home_services/utils/pages/signUpPageContent/signUp_page.dart';
 import 'package:home_services/utils/pages/workweRegistrationForm/RegistrationFrom.dart';
@@ -53,6 +54,12 @@ class TPagerouting {
       path: '/temp',
       builder: (BuildContext context, GoRouterState state) {
         return  MyApp();
+      },
+     ),
+      GoRoute(
+      path: '/profile',
+      builder: (BuildContext context, GoRouterState state) {
+        return  TProfile();
       },
      ),
      GoRoute(

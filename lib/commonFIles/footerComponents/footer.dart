@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:home_services/commonFIles/logoComponents/logo.dart';
+import 'package:home_services/commonFIles/logoComponents/logoSectionStyle.dart';
 import 'package:home_services/constants/colors.dart';
+import 'package:home_services/constants/image_strings.dart';
 import 'package:home_services/constants/size_values.dart';
-import 'package:home_services/utils/localData/footernavData.dart';
-import 'package:home_services/utils/localData/sociallinksdata.dart';
+import 'package:home_services/constants/text_strings.dart';
+import 'package:home_services/utils/localData/footer/footernavData.dart';
+import 'package:home_services/utils/localData/footer/sociallinksdata.dart';
 
 Widget footerSection({
   required double screenSizeheight,
   required double screenSizewidth,
 }) {
+  TextStyle housetextStyle = CTextStyle.companyTextStyle(
+        color: TColors.blue, textSize:  22,textWeigth: FontWeight.bold);
+    TextStyle hustlertextStyle = CTextStyle.companyTextStyle(
+        color: TColors.black, textSize:  22,textWeigth: FontWeight.bold);
   return Container(
     width: screenSizewidth,
     height: 500,
@@ -26,11 +33,33 @@ Widget footerSection({
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    CLogoSection(
-                      logoWidth: TSizeValues.logoWidth,
-                      logoHeight: TSizeValues.logoHeight,
-                      gap: TSizeValues.logoGap,
-                    ),
+                    Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Image.asset(
+          "assets/images/Logowhite.png",
+          width: TSizeValues.logoWidth,
+          height: TSizeValues.logoHeight,
+        ),
+        const SizedBox(
+          width: TSizeValues.logoGap,
+        ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              TTextStrings.house,
+              style: housetextStyle,
+            ),
+            Text(
+              TTextStrings.hustler,
+              style: hustlertextStyle,
+            )
+          ],
+        ),
+      ],
+    )
                   ],
                 ),
               ),

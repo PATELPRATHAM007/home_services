@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import "package:flutter/widgets.dart";
-import "package:home_services/utils/localData/serviceData.dart";
+import "package:go_router/go_router.dart";
+import "package:home_services/utils/localData/homePage/serviceData.dart";
 
 
 class TNewWorthfulServicecardView {
@@ -68,7 +69,7 @@ class TNewWorthfulServicecardView {
       padding: const EdgeInsets.symmetric(horizontal: 5),
       child: InkWell(
         onTap: () {
-          // Handle tap event here, e.g., navigate to a detail screen
+          context.go("/service");
           print('Tapped on ${newAndWorthlyServicesDate[index].service}');
         },
         child: Column(

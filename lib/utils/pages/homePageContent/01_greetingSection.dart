@@ -1,3 +1,6 @@
+import 'dart:developer';
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:home_services/constants/colors.dart';
 import 'package:home_services/constants/image_strings.dart';
@@ -46,10 +49,12 @@ Padding exploreButton() {
       height: 50,
       width: 300,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          // context.go("/Service");
+        },
         style: ElevatedButton.styleFrom(backgroundColor: TColors.blue),
         child: Text(
-          TTextStrings.exploreService,
+          "Explore our serive",
           style: TStyle.smallProFontStyle(),
         ),
       ),

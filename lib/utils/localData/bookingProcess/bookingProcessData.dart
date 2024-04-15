@@ -1,4 +1,4 @@
-import 'package:home_services/utils/models/BookingProcessModel.dart';
+import 'package:home_services/utils/models/homepage/BookingProcessModel.dart';
 
 List<BookingProcessModel> bookingProcessSteps = [
   BookingProcessModel(

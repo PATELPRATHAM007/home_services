@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:home_services/utils/localData/bookingProcessData.dart';
+import 'package:home_services/utils/localData/bookingProcess/bookingProcessData.dart';
+
 
 Widget bookingProcess({
   required double screenSizeheight,
@@ -73,7 +74,7 @@ Widget bookingProcess({
                           ),
                           const SizedBox(height: 10),
                           Padding(
-                            padding: const EdgeInsets.all(12  ),
+                            padding: const EdgeInsets.all(12),
                             child: Text(
                               bookingProcessSteps[index].paragraph,
                               style: const TextStyle(

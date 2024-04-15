@@ -21,7 +21,7 @@ class _RightPartOfCartState extends State<RightPartOfCart> {
             children: [
               listOfCart(),
               SizedBox(height: 30,),
-              totalPayment(),
+              // totalPayment(),
             ],
           ),
         ),
@@ -29,18 +29,19 @@ class _RightPartOfCartState extends State<RightPartOfCart> {
     );
   }
 
-  IntrinsicHeight totalPayment() {
-    return IntrinsicHeight(
-              child: Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(color: Colors.grey[300]!),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: PaymentSummary(),
-              ),
-            );
-  }
+//   IntrinsicHeight totalPayment() {
+//     return IntrinsicHeight(
+//               child: Container(
+//                 width: double.infinity,
+//                 decoration: BoxDecoration(
+//                   color: Colors.white,
+//                   border: Border.all(color: Colors.grey[300]!),
+//                   borderRadius: BorderRadius.circular(20),
+//                 ),
+//                 child: PaymentSummary(),
+//               ),
+//             );
+//   }
 
+// }
 }

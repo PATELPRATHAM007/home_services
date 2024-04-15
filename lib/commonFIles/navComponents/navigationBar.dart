@@ -37,7 +37,7 @@ class _TNavigationBarState extends State<TNavigationBar> {
             const Row(
               children: [
                 NavlinksSection(),
-                CnavCart(),
+                // CnavCart(),
               TSizeValues.loginOrNot == true ? CUserIcon() : NavLoginButton() 
 
                 // NavLoginButton(),

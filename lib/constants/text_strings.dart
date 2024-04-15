@@ -7,7 +7,7 @@ class TTextStrings {
   static String home = "HOME";
   static String services = "SERVICES";
   static String offers = "OFFERS";
-  static String aboutUs = "ANOUT US";
+  static String aboutUs = "ABOUT US";
   static String contactUS = "CONTACT US";
 
   //greeting section
@@ -29,4 +29,6 @@ class TTextStrings {
   static String email = "Email";
   static String loginOptaion = "or use your email address for login";
   static String welcomeBack = "Welcome Back";
+
+  static String idianRupee = '\u20B9';
 }

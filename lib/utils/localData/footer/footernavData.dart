@@ -1,4 +1,4 @@
-import 'package:home_services/utils/models/navLinksModel.dart';
+import 'package:home_services/utils/models/homepage/navLinksModel.dart';
 
 List<NavLinkModel> footernavLinksSection1 = [
   NavLinkModel(textButton: "About Us", navigationLink: "/about_us"),

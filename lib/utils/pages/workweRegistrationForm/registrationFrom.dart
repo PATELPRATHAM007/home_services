@@ -1,11 +1,11 @@
-import "package:flutter/cupertino.dart";
+
 import "package:flutter/material.dart";
-import "package:flutter/rendering.dart";
-import "package:flutter/widgets.dart";
+
 import "package:home_services/commonFIles/logoComponents/logo.dart";
 import "package:home_services/commonFIles/textFormField/textfromfiled.dart";
 import "package:home_services/constants/size_values.dart";
-import "package:home_services/utils/localData/listOfField&Identifier.dart";
+import "package:home_services/utils/localData/registerform/listOfField&Identifier.dart";
+
 import 'package:intl/intl.dart';
 
 class TRegistrationFrom extends StatefulWidget {

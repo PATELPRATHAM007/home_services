@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:home_services/commonFIles/navComponents/navigationBar.dart';
 import 'package:home_services/utils/pages/addToCartContents/leftSidecontent/leftSideOfcart.dart';
 import 'package:home_services/utils/pages/addToCartContents/rightSideContent/rightSideOfCart.dart';
 
@@ -16,6 +17,9 @@ class _TAddToCartState extends State<TAddToCart> {
   Widget build(BuildContext context) {
     Size screensize = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: PreferredSize(
+          preferredSize: Size(screensize.width, 75),
+          child: const TNavigationBar()),
       backgroundColor: Colors.white,
       body: SizedBox(
         width: screensize.width,
