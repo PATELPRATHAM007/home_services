@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:home_services/commonFIles/navComponents/navigationBar.dart';
 import 'package:home_services/constants/text_strings.dart';
+import 'package:home_services/utils/pages/servicesContent/serviceProducts/servicesOptions/addTocartList.dart';
 import 'package:image_picker/image_picker.dart';
 
 class TProfile extends StatefulWidget {
@@ -14,13 +15,13 @@ class TProfile extends StatefulWidget {
 
 class _TProfileState extends State<TProfile> {
   File? _image;
-  String _username = 'John Doe'; // Initial username
-  String _firstName = 'John'; // Initial first name
-  String _lastName = 'Doe'; // Initial last name
-  String _email = 'john.doe@example.com'; // Initial email
-  String _phoneNumber = '123-456-7890'; // Initial phone number
-  String _address = "abc14, r3r43, r456464, surat, gujarat"; // Initial address
-  List<String> bookings = ["data"]; // List of bookings
+  String _username = 'Pratham Patel'; // Initial username
+  String _firstName = 'Patel'; // Initial first name
+  String _lastName = 'Pratham'; // Initial last name
+  String _email = "patelpratham429@gmail.com"; // Initial email
+  String _phoneNumber = '982-589-9246'; // Initial phone number
+  String _address = "A-14 giriraj complex, surat, gujarat"; // Initial address
+  final bookings = cartList; // List of bookings
 
   Future<void> _getImage() async {
     final picker = ImagePicker();
@@ -194,164 +195,161 @@ class _TProfileState extends State<TProfile> {
     );
   }
 
-  Widget bookingSection() {
-    return bookings.isEmpty
-        ? Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Booking Section',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+Widget bookingSection() {
+  return bookings.isEmpty
+      ? Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Booking Section',
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 50),
+              child: Container(
+                width: double.infinity,
+                height: 100,
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey[300]!, width: 1.7),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Center(
+                  child: Text(
+                    'No Bookings',
+                    style: TextStyle(fontSize: 18),
                   ),
-                ],
+                ),
               ),
-              SizedBox(
-                height: 20,
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 50),
+            ),
+          ],
+        )
+      : Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Booking Section',
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 50),
+              child: IntrinsicHeight(
                 child: Container(
                   width: double.infinity,
-                  height: 100,
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.grey[300]!, width: 1.7),
                     borderRadius: BorderRadius.circular(20),
                   ),
-                  child: Center(
-                    child: Text(
-                      'No Bookings',
-                      style: TextStyle(fontSize: 18),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          )
-        : Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Booking Section',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 50),
-                child: IntrinsicHeight(
-                  child: Container(
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        border:
-                            Border.all(color: Colors.grey[300]!, width: 1.7),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Column(
-                        children: List.generate(bookings.length, (index) {
-                          return Padding(
-                            padding: EdgeInsets.all(15),
-                            child: IntrinsicHeight(
-                              child: Container(
-                                width: double.infinity,
-                                // height: 100,
-                                decoration: BoxDecoration(
-                                  color: Colors.grey[200]!,
-                                  borderRadius: BorderRadius.circular(20),
-                                  // boxShadow: [
-                                  //   BoxShadow(blurRadius: 5,offset: Offset(0, 0),color: Colors.grey[300]!)
-                                  // ]
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(15),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                  child: Column(
+                    children: List.generate(bookings.length, (index) {
+                      // Calculate total cost for the booking item
+                      int totalCost = bookings[index].price * bookings[index].quantity;
+                      return Padding(
+                        padding: EdgeInsets.all(15),
+                        child: IntrinsicHeight(
+                          child: Container(
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                              color: Colors.grey[200]!,
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(15),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            "Product name",
-                                            style: TextStyle(
-                                              fontSize: 18,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                          ),
-                                          Text(
-                                            "product id",
-                                            style: TextStyle(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                          ),
-                                          Text(
-                                            "pirce",
-                                            style: TextStyle(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                          ),
-                                        ],
+                                      Text(
+                                        bookings[index].name,
+                                        style: TextStyle(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w600,
+                                        ),
                                       ),
                                       Text(
-                                        "booking date",
+                                        "${bookings[index].id}",
                                         style: TextStyle(
                                           fontSize: 16,
                                           fontWeight: FontWeight.w500,
                                         ),
                                       ),
-                                      Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            "Total ${TTextStrings.idianRupee}999",
-                                            style: TextStyle(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                          ),
-                                          SizedBox(height: 5),
-                                          TextButton(
-                                            onPressed: () {},
-                                            style: ButtonStyle(
-                                              shape: MaterialStateProperty.all<
-                                                  OutlinedBorder>(
-                                                RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          10.0), // adjust the radius as needed
-                                                  side: BorderSide(
-                                                      color: Colors.grey[700]!
-                                                        ), // set the color and width of the border
-                                                ),
-                                              ),
-                                            ),
-                                            child: Text("Cancel"),
-                                          ),
-                                        ],
-                                      )
+                                      Text(
+                                        "Price: ${bookings[index].price}, Quantity: ${bookings[index].quantity}",
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
                                     ],
                                   ),
-                                ),
+                                  Text(
+                                    "Booking Date: ${DateTime.now().toString()}",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        "Total ${TTextStrings.idianRupee}$totalCost",
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                      SizedBox(height: 5),
+                                      TextButton(
+                                        onPressed: () {
+                                          // Remove item from bookings list
+                                          setState(() {
+                                            bookings.removeAt(index);
+                                          });
+                                        },
+                                        style: ButtonStyle(
+                                          shape: MaterialStateProperty.all<OutlinedBorder>(
+                                            RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.circular(10.0),
+                                              side: BorderSide(color: Colors.grey[700]!),
+                                            ),
+                                          ),
+                                        ),
+                                        child: Text("Cancel"),
+                                      ),
+                                    ],
+                                  )
+                                ],
                               ),
                             ),
-                          );
-                        }),
-                      )),
+                          ),
+                        ),
+                      );
+                    }),
+                  ),
                 ),
               ),
-            ],
-          );
-  }
+            ),
+          ],
+        );
+}
+
+
 
   Column personInfoSection() {
     return Column(

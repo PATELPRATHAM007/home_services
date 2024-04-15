@@ -88,7 +88,7 @@ class _BedroomCleaningServicesState extends State<BedroomCleaningServices> {
                       onPressed: () {
                         addToCart(productName: "Standard Bedroom Cleaning", productId: "bedroom001", productPrice: 699);
                       },
-                      image: "",
+                      image: "assets/images/bedRoom.webp",
                     ),
                     const SizedBox(
                       height: 15,
@@ -114,7 +114,7 @@ class _BedroomCleaningServicesState extends State<BedroomCleaningServices> {
                       onPressed: () {
                         addToCart(productName: "Deep Bedroom Cleaning", productId: "bedroom002", productPrice: 999);
                       },
-                      image: "",
+                      image: "assets/images/bedRoom.webp",
                     ),
                   ],
                 ),

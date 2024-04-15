@@ -24,7 +24,7 @@ class _SubSerivesState extends State<SubSerives> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "repairing and mechine repairing ",
+              "Cleaning Service",
               style: TextStyle(
                   color: Colors.black,
                   fontSize: 36,

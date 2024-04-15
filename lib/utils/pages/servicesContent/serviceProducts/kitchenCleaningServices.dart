@@ -90,7 +90,7 @@ class _KitchenCleaningServicesState extends State<KitchenCleaningServices> {
                       onPressed: () {
                         addToCart(productName: "Move-in kitchen cleaning", productId: "homeservicekitchen001",productPrice: 899);
                       },
-                      image: "",
+                      image: "assets/images/kitchenCleaningwoman.jpg",
                     ),
                     const SizedBox(
                       height: 15,
@@ -115,7 +115,7 @@ class _KitchenCleaningServicesState extends State<KitchenCleaningServices> {
                         
                         addToCart(productName: "Complete kitchen cleaning",productId:  "homeservicekitchen002", productPrice: 1999);
                       },
-                      image: "",
+                      image: "assets/images/kitchenCleaningwoman.jpg",
                     ),
                   ],
                 ),

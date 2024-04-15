@@ -88,7 +88,7 @@ class _CarpetCleaningServicesState extends State<CarpetCleaningServices> {
                       onPressed: () {
                         addToCart(productName: "Standard Carpet Cleaning", productId: "carpet001", productPrice: 499);
                       },
-                      image: "",
+                      image: "assets/images/carpet.jpeg",
                     ),
                     const SizedBox(
                       height: 15,
@@ -113,7 +113,7 @@ class _CarpetCleaningServicesState extends State<CarpetCleaningServices> {
                       onPressed: () {
                         addToCart(productName: "Deep Carpet Cleaning", productId: "carpet002", productPrice: 899);
                       },
-                      image: "",
+                      image: "assets/images/carpet.jpeg",
                     ),
                   ],
                 ),

@@ -68,7 +68,7 @@ class TSizeValues {
   static const double superFont = 120;
 
   
-  static const bool loginOrNot = true;
+  static const bool loginOrNot = false;
   double totalitemValue = 0.0;
 } 
 int? selectedButtonIndex = 0;
