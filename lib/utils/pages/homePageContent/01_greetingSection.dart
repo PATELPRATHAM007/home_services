@@ -34,7 +34,7 @@ Positioned greetingTextSection() {
         const SizedBox(
           height: 20,
         ),
-        exploreButton(),
+        // exploreButton(),
       ],
     ),
   );

@@ -1,10 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:uuid/uuid.dart'; // Import the uuid package
+import 'package:uuid/uuid.dart';
 
 class ProductDetail extends StatefulWidget {
-  final String productId; // Add productId field
+  final String productId;
   final String sellerText;
   final String cleaningText;
   final String reviewsText;
@@ -14,7 +12,7 @@ class ProductDetail extends StatefulWidget {
   final String image;
 
   ProductDetail({
-    String? productId, // Modify the constructor to accept an optional productId
+    String? productId,
     required this.sellerText,
     required this.cleaningText,
     required this.reviewsText,
@@ -22,13 +20,15 @@ class ProductDetail extends StatefulWidget {
     required this.dataList,
     required this.onPressed,
     required this.image,
-  }) : productId = productId ?? Uuid().v4(); // Generate a UUID if productId is not provided
+  }) : productId = productId ?? Uuid().v4();
 
   @override
   _ProductDetailState createState() => _ProductDetailState();
 }
 
 class _ProductDetailState extends State<ProductDetail> {
+  String? _snackBarMessage;
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -89,8 +89,7 @@ class _ProductDetailState extends State<ProductDetail> {
                         width: 360,
                         child: Text(
                           "${widget.dataList[index]}",
-                          style:
-                              TextStyle(fontWeight: FontWeight.w500, fontSize: 14),
+                          style: TextStyle(fontWeight: FontWeight.w500, fontSize: 14),
                         ),
                       ),
                     ],
@@ -121,8 +120,7 @@ class _ProductDetailState extends State<ProductDetail> {
                 clipBehavior: Clip.antiAlias,
                 width: 120,
                 height: 120,
-                decoration:
-                    BoxDecoration(borderRadius: BorderRadius.circular(20)),
+                decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
                 child: Image.asset(widget.image),
               ),
               SizedBox(
@@ -132,7 +130,17 @@ class _ProductDetailState extends State<ProductDetail> {
                 width: 120,
                 height: 40,
                 child: FloatingActionButton(
-                  onPressed: widget.onPressed as void Function()?,
+                  onPressed: () {
+                    widget.onPressed();
+                    setState(() {
+                      _snackBarMessage = "Item added to cart";
+                    });
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(_snackBarMessage ?? ""),
+                      ),
+                    );
+                  },
                   elevation: 2.0,
                   backgroundColor: Colors.blue,
                   shape: RoundedRectangleBorder(

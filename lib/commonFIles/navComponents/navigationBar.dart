@@ -8,6 +8,7 @@ import 'package:home_services/commonFIles/navComponents/navloginButton.dart';
 import 'package:home_services/commonFIles/navComponents/userIcon.dart';
 import 'package:home_services/constants/colors.dart';
 import 'package:home_services/constants/size_values.dart';
+import 'package:home_services/utils/pages/servicesContent/serviceProducts/servicesOptions/addTocartList.dart';
 
 class TNavigationBar extends StatefulWidget {
   const TNavigationBar({super.key});
@@ -34,11 +35,11 @@ class _TNavigationBarState extends State<TNavigationBar> {
               gap: TSizeValues.logoGap,
             ),
             const CNavSearchBar(),
-            const Row(
+             Row(
               children: [
                 NavlinksSection(),
                 // CnavCart(),
-              TSizeValues.loginOrNot == true ? CUserIcon() : NavLoginButton() 
+              signinOrNOt == true ? CUserIcon() : NavLoginButton() 
 
                 // NavLoginButton(),
               ],

@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:home_services/utils/pages/servicesContent/serviceProducts/servicesOptions/addTocartList.dart';
@@ -240,7 +238,25 @@ class _listOfCartState extends State<listOfCart> {
                                 height: 40,
                                 child: ElevatedButton(
                                   onPressed: () {
+                                    // Approach 1: Show SnackBar
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text('Booking Successful'),
+                                      ),
+                                    );
+
+                                    // Navigate to home page after a delay
+                                    Future.delayed(Duration(seconds: 2), () {
                                       context.go('/');
+                                    });
+
+                                    // Approach 2: Navigate to a new page
+                                    // Navigator.pushReplacement(
+                                    //   context,
+                                    //   MaterialPageRoute(
+                                    //     builder: (context) => BookingSuccessPage(),
+                                    //   ),
+                                    // );
                                   },
                                   style: ButtonStyle(
                                     backgroundColor:
@@ -269,5 +285,29 @@ class _listOfCartState extends State<listOfCart> {
     return amount < 0
         ? "-₹${amount.abs().toStringAsFixed(2)}"
         : "₹${amount.toStringAsFixed(2)}";
+  }
+}
+
+class BookingSuccessPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Booking Successful'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(Icons.check_circle, color: Colors.green, size: 50),
+            SizedBox(height: 20),
+            Text(
+              'Booking Successful',
+              style: TextStyle(fontSize: 20),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

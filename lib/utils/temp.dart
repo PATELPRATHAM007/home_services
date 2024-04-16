@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_database/firebase_database.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+void main() {
   runApp(MyApp());
 }
 
@@ -12,68 +8,62 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Firebase Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+      routes: {
+        '/section1': (context) => SectionPage(sectionName: 'Section 1', content: 'This is the content of Section 1.'),
+        '/section2': (context) => SectionPage(sectionName: 'Section 2', content: 'This is the content of Section 2.'),
+      },
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Website Example'),
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  // Navigate to section 1
+                  Navigator.pushNamed(context, '/section1');
+                },
+                child: Text('Section 1'),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  // Navigate to section 2
+                  Navigator.pushNamed(context, '/section2');
+                },
+                child: Text('Section 2'),
+              ),
+              // Add more buttons for other sections if needed
+            ],
+          ),
+        ),
       ),
-      home: MyHomePage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
+class SectionPage extends StatelessWidget {
+  final String sectionName;
+  final String content;
 
-class _MyHomePageState extends State<MyHomePage> {
-  final TextEditingController _textController = TextEditingController();
-  final DatabaseReference _database =
-      FirebaseDatabase.instance.reference().child('data');
-
-  void _addData() {
-    String data = _textController.text.trim();
-    if (data.isNotEmpty) {
-      _database.push().set({'value': data}).then((_) {
-        print('Data added successfully!');
-        _textController.clear();
-      }).catchError((error) {
-        print('Failed to add data: $error');
-      });
-    }
-  }
+  const SectionPage({Key? key, required this.sectionName, required this.content}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Flutter Firebase Demo'),
+        title: Text(sectionName),
       ),
-      body: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            TextField(
-              controller: _textController,
-              decoration: InputDecoration(
-                labelText: 'Enter data',
-              ),
-            ),
-            SizedBox(height: 16.0),
-            ElevatedButton(
-              onPressed: _addData,
-              child: Text('Add Data'),
-            ),
-          ],
+      body: Center(
+        child: Padding(
+          padding: EdgeInsets.all(20.0),
+          child: Text(
+            content,
+            style: TextStyle(fontSize: 20),
+          ),
         ),
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    _textController.dispose();
-    super.dispose();
   }
 }

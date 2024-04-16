@@ -11,6 +11,7 @@ import 'package:home_services/commonFIles/textField.dart';
 import 'package:home_services/constants/colors.dart';
 import 'package:home_services/constants/size_values.dart';
 import 'package:home_services/services/Firebase_auth_Services.dart';
+import 'package:home_services/utils/pages/servicesContent/serviceProducts/servicesOptions/addTocartList.dart';
 import 'package:home_services/validation/fieldValidation.dart';
 import 'package:intl_phone_field/country_picker_dialog.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
@@ -220,53 +221,60 @@ class _TSignUpRightSideContainerState extends State<TSignUpRightSideContainer> {
   }
 
   Padding signUpButton() {
-    return Padding(
-      padding: const EdgeInsets.only(top: 15, left: 20, right: 20, bottom: 2),
-      child: SizedBox(
-        height: 50,
-        width: 400,
-        child: ElevatedButton(
-          onPressed: () {
-            if (firstName.text.isEmpty) {
-              if (!emptyFields.contains('First Name')) {
-                emptyFields.add('First Name');
-              }
+  return Padding(
+    padding: const EdgeInsets.only(top: 15, left: 20, right: 20, bottom: 2),
+    child: SizedBox(
+      height: 50,
+      width: 400,
+      child: ElevatedButton(
+        onPressed: () async {
+          if (firstName.text.isEmpty) {
+            if (!emptyFields.contains('First Name')) {
+              emptyFields.add('First Name');
             }
-            if (lastName.text.isEmpty) {
-              if (!emptyFields.contains('Last Name')) {
-                emptyFields.add('Last Name');
-              }
+          }
+          if (lastName.text.isEmpty) {
+            if (!emptyFields.contains('Last Name')) {
+              emptyFields.add('Last Name');
             }
-            if (signUpEmailController.text.isEmpty) {
-              if (!emptyFields.contains('Email')) {
-                emptyFields.add('Email');
-              }
+          }
+          if (signUpEmailController.text.isEmpty) {
+            if (!emptyFields.contains('Email')) {
+              emptyFields.add('Email');
             }
-            if (signUpPasswordController.text.isEmpty) {
-              if (!emptyFields.contains('Password')) {
-                emptyFields.add('Password');
-              }
+          }
+          if (signUpPasswordController.text.isEmpty) {
+            if (!emptyFields.contains('Password')) {
+              emptyFields.add('Password');
             }
-            setState(() {});
-            // databaseRef.child("pratham").set({
-            //   "title": "name",
-            //   "id" : 1});
-             _signup();
-             // Refresh UI to show error messages
-          },
-          style: ElevatedButton.styleFrom(
-              backgroundColor: const Color.fromARGB(255, 50, 88, 220)),
-          child: Text(
-            'Sign Up',
-            style: TextStyle(
-                color: TColors.white,
-                fontSize: 23,
-                fontWeight: FontWeight.w500),
+          }
+          setState(() {});
+          signinOrNOt = true;
+          bool signUpSuccess = await _signup();
+          if (signUpSuccess) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text('Sign Up Successful'),
+              ),
+            );
+          }
+        },
+        style: ElevatedButton.styleFrom(
+          backgroundColor: const Color.fromARGB(255, 50, 88, 220),
+        ),
+        child: Text(
+          'Sign Up',
+          style: TextStyle(
+            color: TColors.white,
+            fontSize: 23,
+            fontWeight: FontWeight.w500,
           ),
         ),
       ),
-    );
-  }
+    ),
+  );
+}
+
 
   Padding phoneNumberField() {
     return Padding(
@@ -470,21 +478,23 @@ class _TSignUpRightSideContainerState extends State<TSignUpRightSideContainer> {
     );
   }
 
-  void _signup() async{
-    String firstname = firstName.text;
-    String lastname = lastName.text;
-    String email = signUpEmailController.text;
-    String password = signUpPasswordController.text;
-    String phoneNumber = signUpPhoneNumberController.text;
+  Future<bool> _signup() async {
+  String firstname = firstName.text;
+  String lastname = lastName.text;
+  String email = signUpEmailController.text;
+  String password = signUpPasswordController.text;
+  String phoneNumber = signUpPhoneNumberController.text;
 
-    User ? user = await _auth.signUpWithEmailAndPassword(email, password);
+  User? user = await _auth.signUpWithEmailAndPassword(email, password);
 
-    if (user != null) {
-       // ignore: use_build_context_synchronously
-       context.go('/');
-    }
-    else{
-      print("some error are there");
-    }
+  if (user != null) {
+    // ignore: use_build_context_synchronously
+    context.go('/');
+    return true; // Corrected spelling
+  } else {
+    print("some error are there");
+    return false; // Added semicolon
   }
+}
+
 }

@@ -2,3 +2,4 @@
 
 List<CartProduct> cartList = [];
 double totalitemValue = 0.0;
+bool signinOrNOt = false;
